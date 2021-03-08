@@ -12,7 +12,7 @@ platters =[
     price: 25.00,
     description: "46 pièces",
     category: "meal",
-    under_category: "sushis",
+    sub_category: "sushis",
     price_in_menu: 0.00
   },
   {
@@ -20,7 +20,7 @@ platters =[
     price: 30.00,
     description: "46 pièces",
     category: "meal",
-    under_category: "sushis",
+    sub_category: "sushis",
     price_in_menu: 0.00
   },
   {
@@ -28,7 +28,7 @@ platters =[
     price: 8.50,
     description: "14 pièces au choix",
     category: "meal",
-    under_category: "sushis",
+    sub_category: "sushis",
     price_in_menu: 0.00
   }
 ]
@@ -39,7 +39,7 @@ noodles = [
     price: 7.00,
     description: "Nouilles composées de poulet, d'oeufs et de ciboulette accompagné de sauce siracha.",
     category: "meal",
-    under_category: "Nouilles",
+    sub_category: "Nouilles",
     price_in_menu: 10.50
   },
   {
@@ -47,7 +47,7 @@ noodles = [
     price: 9.00,
     description: "Nouilles composées de crevettes, d'oeufs et de ciboulette accompagné de sauce siracha.",
     category: "meal",
-    under_category: "Nouilles",
+    sub_category: "Nouilles",
     price_in_menu: 12.50
   },
   {
@@ -55,7 +55,7 @@ noodles = [
     price: 8.50,
     description: "Nouilles composées d'une escalope frit avec un coulis de sauce aigre douce et d'un oeuf au plat.",
     category: "meal",
-    under_category: "Nouilles",
+    sub_category: "Nouilles",
     price_in_menu: 12.50
   }
 ]
@@ -66,7 +66,7 @@ frieds_chicken = [
     price: 7.00,
     description: "5 Wings frit à la façon coréenne empreigné de la sauce \"GochujJang\" et de ciboulettes.",
     category: "meal",
-    under_category: "Poulet Frit",
+    sub_category: "Poulet Frit",
     price_in_menu: 11.50
   },
   {
@@ -74,7 +74,7 @@ frieds_chicken = [
     price: 8.00,
     description: "5 Wings frit à la façon coréenne avec notre fameuse sauce \"Cream & Cheese\" et de ciboulettes.",
     category: "meal",
-    under_category: "Poulet Frit",
+    sub_category: "Poulet Frit",
     price_in_menu: 11.50
   },
   {
@@ -82,7 +82,7 @@ frieds_chicken = [
     price: 8.00,
     description: "5 Tenders frit à la façon coréenne empreigné de la sauce \"GochujJang\" et de ciboulettes.",
     category: "meal",
-    under_category: "Poulet Frit",
+    sub_category: "Poulet Frit",
     price_in_menu: 11.50
   },
   {
@@ -90,7 +90,7 @@ frieds_chicken = [
     price: 8.00,
     description: "5 Tenders frit à la façon coréenne avec notre fameuse sauce \"Cream & Cheese\" et de ciboulettes.",
     category: "meal",
-    under_category: "Poulet Frit",
+    sub_category: "Poulet Frit",
     price_in_menu: 11.50
   }
 ]
@@ -101,7 +101,7 @@ starters = [
     price: 5.00,
     description: "4 Pièces de nems au poulet.",
     category: "Accompagnement",
-    under_category: "Nem",
+    sub_category: "Nem",
     price_in_menu: 0.00
   },
   {
@@ -109,7 +109,7 @@ starters = [
     price: 5,
     description: "4 Pièces de nems au crevette.",
     category: "Accompagnement",
-    under_category: "Nem",
+    sub_category: "Nem",
     price_in_menu: 0.00
   },
   {
@@ -117,7 +117,7 @@ starters = [
     price: 5.00,
     description: "3 Pièces de crevettes enrobées de feuille de brique.",
     category: "Accompagnement",
-    under_category: "Nem",
+    sub_category: "Nem",
     price_in_menu: 0.00
   },
   {
@@ -125,7 +125,7 @@ starters = [
     price: 3.00,
     description: "Frites fraichement découpé la veille.",
     category: "Accompagnement",
-    under_category: "Frite",
+    sub_category: "Frite",
     price_in_menu: 0.00
   }
 ]
@@ -136,7 +136,7 @@ extras = [
     price: 1.00,
     description: "Oignons frit sur les frites.",
     category: "Accompagnement",
-    under_category: "Supplément",
+    sub_category: "Supplément",
     price_in_menu: 0.00
   },
   {
@@ -144,7 +144,7 @@ extras = [
     price: 1.00,
     description: "Cheddar sur les frites.",
     category: "Accompagnement",
-    under_category: "Supplément",
+    sub_category: "Supplément",
     price_in_menu: 0.00
   },
   {
@@ -152,7 +152,7 @@ extras = [
     price: 0.50,
     description: "Soja sucrée.",
     category: "Accompagnement",
-    under_category: "Supplément",
+    sub_category: "Supplément",
     price_in_menu: 0.00
   },
   {
@@ -160,7 +160,7 @@ extras = [
     price: 0.50,
     description: "Soja salée.",
     category: "Accompagnement",
-    under_category: "Supplément",
+    sub_category: "Supplément",
     price_in_menu: 0.00
   },
   {
@@ -168,7 +168,7 @@ extras = [
     price: 0.50,
     description: "Spicy thaï.",
     category: "Accompagnement",
-    under_category: "Supplément",
+    sub_category: "Supplément",
     price_in_menu: 0.00
   },
   {
@@ -176,7 +176,7 @@ extras = [
     price: 0.50,
     description: "Soja salée.",
     category: "Accompagnement",
-    under_category: "Supplément",
+    sub_category: "Supplément",
     price_in_menu: 0.00
   }
 ]
@@ -187,7 +187,7 @@ desserts = [
     price: 3.00,
     description: "Tiramisu à base de Speculoos.",
     category: "Dessert",
-    under_category: "Tiramisu",
+    sub_category: "Tiramisu",
     price_in_menu: 0.00
   },
   {
@@ -195,7 +195,7 @@ desserts = [
     price: 3.00,
     description: "Tiramisu à base d'Oreo.",
     category: "Dessert",
-    under_category: "Tiramisu",
+    sub_category: "Tiramisu",
     price_in_menu: 0.00
   },
   {
@@ -203,7 +203,7 @@ desserts = [
     price: 3.00,
     description: "Tiramisu à base de Kinder Bueno.",
     category: "Dessert",
-    under_category: "Tiramisu",
+    sub_category: "Tiramisu",
     price_in_menu: 0.00
   }
 ]
@@ -214,7 +214,7 @@ drinks = [
     price: 1.30,
     description: "",
     category: "Boisson",
-    under_category: "Boisson",
+    sub_category: "Boisson",
     price_in_menu: 0.00
   },
   {
@@ -222,7 +222,7 @@ drinks = [
     price: 1.30,
     description: "",
     category: "Boisson",
-    under_category: "Boisson",
+    sub_category: "Boisson",
     price_in_menu: 0.00
   },
   {
@@ -230,7 +230,7 @@ drinks = [
     price: 1.30,
     description: "",
     category: "Boisson",
-    under_category: "Boisson",
+    sub_category: "Boisson",
     price_in_menu: 0.00
   },
   {
@@ -238,7 +238,7 @@ drinks = [
     price: 1.30,
     description: "",
     category: "Boisson",
-    under_category: "Boisson",
+    sub_category: "Boisson",
     price_in_menu: 0.00
   },
   {
@@ -246,7 +246,7 @@ drinks = [
     price: 1.30,
     description: "",
     category: "Boisson",
-    under_category: "Boisson",
+    sub_category: "Boisson",
     price_in_menu: 0.00
   },
   {
@@ -254,7 +254,7 @@ drinks = [
     price: 1.30,
     description: "",
     category: "Boisson",
-    under_category: "Boisson",
+    sub_category: "Boisson",
     price_in_menu: 0.00
   },
   {
@@ -262,7 +262,7 @@ drinks = [
     price: 1.30,
     description: "",
     category: "Boisson",
-    under_category: "Boisson",
+    sub_category: "Boisson",
     price_in_menu: 0.00
   }
 ]
