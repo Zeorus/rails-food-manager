@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
 
-  def index 
+  def index
+    @customers = policy_scope(Customer)
   end
 end

@@ -1,12 +1,68 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $my_background;
+  height: 72px;
+
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .active {
+    background-color: $my_light !important;
+  }
+
+  .btn-large {
+    margin-right: 16px;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+#btn-home {
+  color: white;
+  width: 58px;
+  font-size: 37px;
+  margin-left: 16px;
+  padding: 0 8px;
+  border: 1px solid $my_light;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $my_light;
+  }
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-toggler {
+  margin: 0 0 0 auto;
+}
+
+.fa-user-circle {
+  color: white;
+  font-size: 42px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.avatar:hover {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  border: 1px solid $my_light;
+  border-radius: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-item:hover {
+  color: white;
+  background-color: $my_light;
+}
+
+.dropdown-item-top {
+  border-radius: 10px 10px 0 0;
+}
+
+.dropdown-item-bottom {
+  border-radius: 0 0 10px 10px;
 }

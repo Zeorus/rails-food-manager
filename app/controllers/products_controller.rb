@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 
-  def index 
+  def index
+    @products = policy_scope(Product)
   end
 end
