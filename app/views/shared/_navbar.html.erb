@@ -16,11 +16,11 @@
         <li class="nav-item">
           <!-- button modal redirect on shared/modal -->
           <button type="button" class="btn-large nav-link" data-toggle="modal" data-target="#exampleModal" data-customer=" <%= @customer = Customer.new %> ">
-            Create customer
+            New Customer
           </button>
         </li>
         <li class="nav-item">
-          <%= link_to "Create Order", "#", class: "btn-large nav-link" %>
+          <%= link_to "New Order", new_order_path, class: "btn-large nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <% if current_user.avatar.attached? %>
