@@ -7,7 +7,6 @@
       <div class="col-2">City</div>
       <div class="col-2">Action</div>
     </div>
-    <!-- <div class="row">Email</div> -->
     <% @customers.each do |customer| %>
       <div class="row row-customer">
         <div class="col-2"><%= customer.first_name%> <%= customer.last_name%></div>
@@ -19,11 +18,8 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "edit", edit_customer_path(customer), class: "dropdown-item dropdown-item-top" %>
             <%= link_to "destroy", customer_path(customer), method: :delete, class: "dropdown-item dropdown-item-bottom" %>
-          </div>
-        </li>
         </div>
-
-        <!-- <div class="col-6"><%= customer.email%></div>   -->
+        </div>
       </div>
     <% end %>
   </div>

@@ -5,17 +5,13 @@ class CustomersController < ApplicationController
     @customers = policy_scope(Customer)
   end
 
-  def new
-    @customer = Customer.new
-    authorize @customer
-  end
 
 
   def create
     @customer = Customer.new(customer_params)
     authorize @customer
     if @customer.save
-      redirect_to @customers, notice: "Customer was successfully created"
+      redirect_to customers_path, notice: "Customer was successfully created"
     else
       render :new
     end
@@ -38,6 +34,7 @@ class CustomersController < ApplicationController
     authorize @customer
     @customer.destroy
     head :no_content
+    redirect_to customers_path, notice: "Customer was successfully destroyed"
   end
 
 
