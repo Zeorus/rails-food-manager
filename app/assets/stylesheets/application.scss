@@ -11,11 +11,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "customers/index";
 @import "orders/index";
 
 html, body {
-  margin: 0; 
-  height: 100%; 
+  margin: 0;
+  height: 100%;
   overflow-y: auto;
 }
 
@@ -23,7 +24,7 @@ a {
   text-decoration: none !important;
   color: inherit;
   background-color: transparent;
-  
+
   &:hover {
     color:inherit;
   }
