@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'pages#dashboard'
 
-  resources :customers, only: [:index]
+  resources :customers
 
   resources :orders, only: [:index]
 
