@@ -1,0 +1,29 @@
+<div class="d-flex">
+  <div id="sidebar">
+    <div class="<%= 'active' if current_page?(orders_path) %> link-side-nav">
+      <%= link_to orders_path do %>
+        <i class="fas fa-list"></i><span>Orders List</span>
+      <% end %>
+    </div>
+    <div class="<%= 'active' if current_page?(customers_path) %> link-side-nav">
+      <%= link_to customers_path do %>
+        <i class="fas fa-users"></i><span>Customers</span>
+      <% end %>
+    </div>
+    <div class="<%= 'active' if current_page?(products_path) %> link-side-nav">
+      <%= link_to products_path do %>
+        <i class="fas fa-utensils"></i><span>Products</span>
+      <% end %>
+    </div>
+    <div class="link-side-nav">
+      <%= link_to '#' do %>
+        <i class="fas fa-biking"></i><span>Riders</span>
+      <% end %>
+    </div>
+    <div class="link-side-nav">
+      <%= link_to '#' do %>
+        <i class="fas fa-chart-pie"></i><span>Statistics</span>
+      <% end %>
+    </div>
+  </div>
+</div>

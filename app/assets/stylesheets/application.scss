@@ -11,3 +11,26 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+html, body {
+  margin: 0; 
+  height: 100%; 
+  overflow-y: auto;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
+  background-color: transparent;
+  
+  &:hover {
+    color:inherit;
+  }
+}
+
+#page-container {
+  flex-grow: 1;
+  margin: 72px 20px 20px 20px;
+  width: 100%;
+  padding: 20px 15px 0 15px;
+}

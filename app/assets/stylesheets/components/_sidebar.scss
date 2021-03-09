@@ -1,0 +1,28 @@
+#sidebar {
+  margin-top: 72px;
+  color: white;
+  height: calc(100vh - 72px);
+  // flex: 0 0 150px;
+  width: 175px;
+  background: $my_background;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: sticky;
+  top: 72px;
+
+  .active {
+    background-color: $my_light;
+  }
+}
+
+.link-side-nav {
+  width: 160px;
+  padding: 8px 0 8px 16px;
+  font-size: 18px;
+  border-radius: 0 50px 50px 0;
+
+  i {
+    margin-right: 8px;
+  }
+}
