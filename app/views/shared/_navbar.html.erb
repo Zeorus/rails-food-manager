@@ -4,18 +4,15 @@
       <%= link_to '<i class="fas fa-home"></i>'.html_safe, dashboard_path, title: 'Home', data: { toggle: 'tooltip' } %>
     </div>
   </div>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
           <!-- button modal redirect on shared/modal -->
-          <button type="button" class="btn-large nav-link" data-toggle="modal" data-target="#exampleModal" data-customer=" <%= @customer = Customer.new %> ">
+          <button type="button" class="btn-large nav-link" data-toggle="modal" data-target="#customer" data-customer=" <%= @customer = Customer.new %> ">
             New Customer
           </button>
         </li>

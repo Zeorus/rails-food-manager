@@ -3,9 +3,17 @@ class CustomersController < ApplicationController
 
   def index
     @customers = policy_scope(Customer)
+    if params[:query].present?
+      sql_query = " \
+        first_name ILIKE :query \
+        OR last_name ILIKE :query \
+        OR phone_number ILIKE :query \
+      "
+      @customers = Customer.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @customers = Customer.all.order(last_name: :desc)
+    end
   end
-
-
 
   def create
     @customer = Customer.new(customer_params)
@@ -33,8 +41,7 @@ class CustomersController < ApplicationController
   def destroy
     authorize @customer
     @customer.destroy
-    head :no_content
-    redirect_to customers_path, notice: "Customer was successfully destroyed"
+    redirect_to customers_path
   end
 
 
