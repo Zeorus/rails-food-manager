@@ -22,9 +22,10 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     authorize @order
+    raise
     @order.customer = Customer.find_by(phone_number: params[:customer])
     order_products = params[:products]
-    if @order.save!
+    if @order.save
       order_products.each do |product, quantity|
         order_product = OrderProduct.new(product_id: product.to_i, quantity: quantity)
         order_product.order = @order
@@ -46,6 +47,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payement)
+    params.require(:order).permit(:payment_method, :recovery_mode, :total_price)
   end
 end

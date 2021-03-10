@@ -3,7 +3,7 @@
   <h4 id="order-content-title">Choose a category</h4>
     <div id="order-display-content">
       <% @products.each do |product| %>
-        <div class="order-content-product border" data-controller="product" data-action="click->product#add">
+        <div class="order-content-product" data-controller="product" data-action="click->product#add">
           <div class="product">
             <span data-product-target="product" data-product_id="<%= product.id %>" data-product_price="<%= product.price %>"><%= product.name %></span>
           </div>
@@ -32,14 +32,22 @@
           <%# insert products here %>
         </ul>
         <div class="flex-grow-1"></div>
-        <%= f.input :payement,
+        <%= f.input :payment_method,
                     required: true,
                     as: :radio_buttons,
                     collection_wrapper_tag: 'div',
                     collection_wrapper_class: 'category-wrapper',
                     item_wrapper_class: 'category-item',
                     collection: ["CB", "Espèce"] %>
-        <h6 id="total-order-price">Total Price: <span id="total-price-field">0</span><i class="fas fa-euro-sign"></i></h6>
+        <%= f.input :recovery_mode,
+                    required: true,
+                    as: :radio_buttons,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'category-wrapper',
+                    item_wrapper_class: 'category-item',
+                    collection: ["Livraison", "À Emporter"] %>
+        <%= f.input :total_price, as: :hidden, input_html: { value: 0.00 } %>
+        <h6 id="total-order-price">Total Price: <span id="total-price-field">0.00</span><i class="fas fa-euro-sign"></i></h6>
       </div>
       <%= f.submit "Create order", class: "btn-large", id: "btn-create-order" %>
     </div>
