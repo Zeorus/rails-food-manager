@@ -1,30 +1,49 @@
 <div id="new-order-container">
   <div id="order-content">
-    <div id="order-choose-category">
-      <h4>Choose a category</h4>
-    </div>
-  </div>
-  <div id="order-sidebar">
-    <h5>New Order</h5>
-    <div id="order-customer-infos">
-      <h6>Customer</h6>
-      <% if @customer != nil %>
-        <p>First Name: <%= @customer.first_name %></p>
-        <p>Last Name: <%= @customer.last_name %></p>
-        <p>Phone: <%= @customer.phone_number %></p>
-        <p>Address: <%= @customer.address %></p>
-        <p>City: <%= @customer.city %></p>
+  <h4 id="order-content-title">Choose a category</h4>
+    <div id="order-display-content">
+      <% @products.each do |product| %>
+        <div class="order-content-product border" data-controller="product" data-action="click->product#add">
+          <div class="product">
+            <span data-product-target="product" data-product_id="<%= product.id %>" data-product_price="<%= product.price %>"><%= product.name %></span>
+          </div>
+        </div>
       <% end %>
     </div>
-    <div id="order-products-container">
-      <h6>Order Products</h6>
-      <ul id="order-product-list">
-        <li>test</li>
-      </ul>
-      <h6 id="total-order-price">Total Price: <span>€</span></h6>
-    </div>
-    <%= link_to "Create order", new_order_path, class: "btn-large", id: "btn-create-order" %>
   </div>
+  <%= simple_form_for @order do |f| %>
+    <div id="order-sidebar">
+      <h5>New Order</h5>
+      <div id="order-customer-infos">
+        <h6>Customer</h6>
+        <% if @customer != nil %>
+          <p>First Name: <%= @customer.first_name %></p>
+          <p>Last Name: <%= @customer.last_name %></p>
+          <p>Phone: <%= @customer.phone_number %></p>
+          <p>Address: <%= @customer.address %></p>
+          <p>City: <%= @customer.city %></p>
+          <%= hidden_field_tag(:customer, @customer.phone_number) %>
+        <% end %>
+      </div>
+      
+      <div id="order-products-container">
+        <h6>Order Products</h6>
+        <ul id="order-product-list">
+          <%# insert products here %>
+        </ul>
+        <div class="flex-grow-1"></div>
+        <%= f.input :payement,
+                    required: true,
+                    as: :radio_buttons,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'category-wrapper',
+                    item_wrapper_class: 'category-item',
+                    collection: ["CB", "Espèce"] %>
+        <h6 id="total-order-price">Total Price: <span id="total-price-field">0</span><i class="fas fa-euro-sign"></i></h6>
+      </div>
+      <%= f.submit "Create order", class: "btn-large", id: "btn-create-order" %>
+    </div>
+  <% end %>
 </div>
 
 <div class="modal fade" id="search-customer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -52,3 +71,5 @@
     </div>
   </div>
 </div>
+
+<% console %>
