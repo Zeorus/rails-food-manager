@@ -1,7 +1,14 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only: [:show, :edit, :destroy]
+  before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
+    @categories = Category.all.map do |category|
+      category
+    end
+
+    @product = Product.new
+    @category = Category.new
+
     if params[:query].present?
       @products = Product.search_name(params[:query])
       @products_all = policy_scope(Product)
@@ -17,16 +24,12 @@ class ProductsController < ApplicationController
     authorize @product
   end
 
-  def new
-    @product = Product.new
-    authorize @product
-  end
-
   def create
     @product = Product.new(product_params)
+    @product.category = Category.find(params["product"]["category_id"])
     authorize @product
     if @product.save
-      render :index
+      redirect_to products_path, notice: "Product was successfully created"
     end
   end
 

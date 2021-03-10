@@ -1,14 +1,11 @@
 class CategoriesController < ApplicationController
-  def new
-    @category = Category.new
-    authorize @category
-  end
+  before_action :find_category, only: [:show, :edit, :update, :destroy]
 
   def create
-    @category = Category.new
+    @category = Category.new(category_params)
     authorize @category
-    if @category.save(category_params)
-      render "products_contoller/index"
+    if @category.save
+      redirect_to products_path, notice: "category was successfully created"
     end
   end
 
@@ -20,7 +17,7 @@ class CategoriesController < ApplicationController
     @category = Category.new
     authorize @category
     if @category.update(category_params)
-      render :index
+      redirect_to products_path, notice: "category was successfully updated"
     else
       render :show
     end
@@ -29,7 +26,7 @@ class CategoriesController < ApplicationController
   def destroy
     authorize @category
     @category.destroy
-    redirect_to categorys_path
+    redirect_to categories_path
   end
 
   private
