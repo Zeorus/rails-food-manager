@@ -19,6 +19,7 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
+import "controllers";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -29,7 +30,7 @@ document.addEventListener('turbolinks:load', () => {
     $('[data-toggle="tooltip"]').tooltip(); 
   });
 
-  if (window.location.href == "http://localhost:3000/orders/new") {
+  if (window.location.href == ("http://localhost:3000/orders/new" || "https://thefoodmanager.herokuapp.com/orders/new")) {
     $('#search-customer').modal();
   }
 
