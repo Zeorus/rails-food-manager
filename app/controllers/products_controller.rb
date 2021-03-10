@@ -34,13 +34,13 @@ class ProductsController < ApplicationController
     authorize @product
   end
 
-  def updates
+  def update
     @product = Product.new
     authorize @product
     if @product.update(product_params)
-      render :index
+      redirect_to products_path, notice: "Product was successfully updated"
     else
-      render :show
+      render :edit
     end
   end
 
