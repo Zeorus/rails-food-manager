@@ -2,7 +2,7 @@
   display: flex;
   height: 500px;
   position: relative;
-  padding-right: 165px;
+  padding-right: 230px;
   height: calc(100vh - 120px) !important;
 }
 
@@ -19,11 +19,10 @@
 #order-sidebar {
   position: absolute;
   border-left: 1px solid $my_light;
-  height: calc(100vh - 73px) !important;
+  min-height: calc(100vh - 73px) !important;
   top: -20px;
   right: -35px;
-  width: 175px;
-  height: 100vh;
+  width: 230px;
   background-color: white;
   padding: 8px;
   display: flex;
@@ -56,8 +55,9 @@
 }
 
 #order-products-container {
-  position: relative;
   margin: 8px 0;
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
   border: 1px solid $my_light;
   border-radius: 10px;
@@ -73,9 +73,9 @@
     list-style: none;
     padding: 0;
     margin: 0;
-  }
+    }
 
-  p, li {
+  p, li, .form-group {
     color: $my_dark_one;
     font-size: 12px;
     margin: 0;
@@ -85,10 +85,54 @@
 #btn-create-order {
   text-align: center;
   padding: 8px;
+  border-style: hidden;
 }
 
 #total-order-price {
-  position: absolute;
-  bottom: 0;
-  right: 8px;
+  text-align: end;
+  margin-top: 8px;
+}
+
+#order-display-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.category-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 4px;
+  border-bottom: 1px solid $my_light;
+
+  .collection_radio_buttons {
+    padding-top: 3px;
+  }
+}
+
+#order-product-list {
+  
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+
+    input {
+      width: 20px;
+      text-align: center;
+    }
+  }
+
+  .fa-trash-alt {
+    margin: 0 5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.fa-euro-sign {
+  margin: 0 5px 0 2px;
 }

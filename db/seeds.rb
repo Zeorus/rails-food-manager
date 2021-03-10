@@ -106,7 +106,7 @@ starters = [
   },
   {
     name: 'Nems au crevettes',
-    price: 5,
+    price: 5.00,
     description: "4 Pièces de nems au crevette.",
     category: "Accompagnement",
     sub_category: "Nem",
