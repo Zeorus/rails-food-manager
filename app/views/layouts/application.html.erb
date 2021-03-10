@@ -16,13 +16,15 @@
 
     <div class="d-flex">
       <%= render 'shared/sidebar' if user_signed_in?%>
-      
+
       <div id="page-container">
         <%= yield %>
       </div>
-      
+
     </div>
 
     <%= render 'shared/flashes' %>
+    <%= render 'shared/modal_customer' if user_signed_in? %>
+
   </body>
 </html>

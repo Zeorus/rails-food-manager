@@ -1,0 +1,40 @@
+.row-customer {
+  display: grid;
+  grid-template-column: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid $my_light ;
+  border-radius: 50px;
+  padding: 20px;
+  height: 100px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  align-items: center;
+}
+
+.container-customer {
+  border: 1px solid $my_light ;
+  border-radius: 50px;
+  padding: 50px;
+  overflow-y: auto;
+  height: calc(100vh - 112px);
+}
+
+.row-header {
+
+  gap: 16px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fa-user-edit:hover {
+  cursor: pointer;
+}
+
+
+
+
+
+

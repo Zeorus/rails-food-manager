@@ -1,0 +1,60 @@
+@import "new";
+
+#orders-list-container {
+  background-color: white;
+  border: 1px solid $my_light;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+#orders-list {
+  margin-top: 16px;
+  width: 100%;
+  text-align: center;
+}
+
+#orders-header {
+  display: flex;
+  color: $my_dark_one;
+  font-size: 12px;
+  font-weight: bold;
+  padding-bottom: 16px;
+}
+
+.tabs-item-time {
+  flex: 0 0 12%;
+}
+
+.tabs-item-customer {
+  flex: 0 0 20%;
+}
+
+.tabs-item-price {
+  flex: 0 0 12%;
+}
+
+.tabs-item-address {
+  flex: 0 0 25%;
+}
+
+.tabs-item-city {
+  flex: 0 0 16%;
+}
+
+.tabs-item-status {
+  flex: 0 0 15%;
+}
+
+.order-row {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  border: 1px solid $my_light;
+  height: 42px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+}
+
+#btn-regroup-loc {
+  padding: 8px;
+}

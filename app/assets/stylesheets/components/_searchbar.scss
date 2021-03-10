@@ -1,0 +1,41 @@
+#orders-searchbar {
+  width: 40%;
+}
+
+#products-searchbar {
+  width: 40%;
+  margin: 0 auto;
+  padding-bottom: 8px;
+}
+
+.laptop-searchbar {
+  display: flex;
+  height: 42px;
+  min-width: 200px;
+  width: 100%;
+
+  button {
+    border-radius: 0 50px 50px 0;
+    border: 1px solid $my_light;
+    border-left: none;
+    background-color: white;
+    padding-right: 8px;
+
+    i {
+      color: $my_light;
+    }
+  }
+}
+
+.input-form {
+  padding-left: 8px;
+  border: 1px solid $my_light;
+  border-right: none;
+  border-radius: 50px 0 0 50px;
+  height: 42px;
+  width: 100%;
+
+  &:focus {
+    outline: 0;
+  }
+}
