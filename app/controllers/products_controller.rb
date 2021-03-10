@@ -23,12 +23,10 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new
+    @product = Product.new(product_params)
     authorize @product
-    if @product.save(product_params)
+    if @product.save
       render :index
-    else
-      render :new
     end
   end
 

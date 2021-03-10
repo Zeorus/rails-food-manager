@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :new, :create]
 
   resources :products, except: [:show]
+
+  resources :categories
 end

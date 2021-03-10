@@ -8,9 +8,7 @@ class CategoriesController < ApplicationController
     @category = Category.new
     authorize @category
     if @category.save(category_params)
-      render :index
-    else
-      render :new
+      render "products_contoller/index"
     end
   end
 
