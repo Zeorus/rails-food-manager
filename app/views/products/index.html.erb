@@ -1,10 +1,10 @@
  <%= render "searchbar" %>
 <div class="cards_product">
   <% if @products.empty?%>
-      <%= render "product_card", products: @products_all %>
-    <% else %>
-      <%= render "product_card", products: @products %>
-    <% end %>
+    <%= render "product_card", products: @products_all %>
+  <% else %>
+    <%= render "product_card", products: @products %>
+   <% end %>
 
 </div>
 <div class="text-right pt-4">
