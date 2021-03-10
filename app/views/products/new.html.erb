@@ -1,0 +1,14 @@
+<div id="form-container" class="container">
+  <%= simple_form_for(@product) do |f| %>
+    <div id="info">
+      <%= f.input :name, placeholder: "sushi" %>
+      <%= f.input :category, collection: .category %>
+      <%= f.input :sub_category %>
+      <%= f.input :description, as: :text %>
+      <%= f.input :price, placeholder: "5€" %>
+      <%= f.input :price_in_menu, placeholder: "7€" %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit "Submit", class: "button" %>
+    </div>
+  <% end %>
+</div>

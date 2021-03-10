@@ -1,7 +1,15 @@
 class ProductsController < ApplicationController
-before_action :find_product, only: [:show, :edit, :destroy]
+  before_action :find_product, only: [:show, :edit, :destroy]
+
   def index
-    @products = policy_scope(Product)
+    if params[:query].present?
+      @products = Product.search_name_and_category(params[:query])
+      @products_all = policy_scope(Product)
+
+      @products_all if @products.empty?
+    else
+      @products = policy_scope(Product)
+    end
   end
 
   def show
