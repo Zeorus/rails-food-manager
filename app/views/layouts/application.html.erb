@@ -31,7 +31,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <%= render 'customers/form' %>
+            <%= render 'customers/form' if user_signed_in?%>
           </div>
         </div>
       </div>
