@@ -17,7 +17,7 @@
   <div id="orders-list">
     <div id="orders-header">
       <span class="tabs-item-time">Time</span>
-      <span class="tabs-item-customer">Customer</span>
+      <span class="tabs-item-customer">Phone Number</span>
       <span class="tabs-item-price">Price</span>
       <span class="tabs-item-address">Address</span>
       <span class="tabs-item-city">City</span>
@@ -25,14 +25,18 @@
     </div>
     <div id="orders-content">
       <% if @orders != [] %>
-        <div class="order-row">
-          <span class="tabs-item-time">22 min</span>
-          <span class="tabs-item-customer">Moi</span>
-          <span class="tabs-item-price">25 €</span>
-          <span class="tabs-item-address">142 rue de Denain</span>
-          <span class="tabs-item-city">Roubaix</span>
-          <span class="tabs-item-status">Pending</span>
-        </div>
+        <% @orders.each do |order| %>
+          <%= link_to order_path(order) do %>
+            <div class="order-row">
+              <span class="tabs-item-time"><%= order.created_at.strftime("%d-%m-%Y %H:%M") %></span>
+              <span class="tabs-item-customer"><%= order.customer.phone_number %></span>
+              <span class="tabs-item-price"><%= order.total_price %> €</span>
+              <span class="tabs-item-address"><%= order.customer.address %></span>
+              <span class="tabs-item-city"><%= order.customer.city %></span>
+              <span class="tabs-item-status"><%= order.delivery_status %></span>
+            </div>
+          <% end %>
+        <% end %>
       <% else %>
         <p>No order for today</p>
       <% end %>

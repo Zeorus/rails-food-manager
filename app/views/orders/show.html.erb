@@ -1,8 +1,9 @@
 <div id="order-show-container">
   <div class="d-flex"><h2>Order #<%= @order.id %></h2><span class="flex-grow-1"></span><span><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_path(@order), method: :delete, data: { confirm: 'Are you sure?' } %></span></div>
-  <p>Create: <%= @order.created_at.strftime("%A, %d-%m-%Y at %H:%M" ) %></p>
-  <p>Payement Method: <%= @order.payement %></p>
-  <p>Recovery: </p>
+  <p>Create: <%= @order.created_at.strftime("%A, %d-%m-%Y at %H:%M") %></p>
+  <p>Payment Method: <%= @order.payment_method %></p>
+  <p>Recovery mode: <%= @order.recovery_mode %></p>
+  <p>Delivery Status: <%= @order.delivery_status %></p>
 
   <div id="order-show-customer">
     <h3><%= @order.customer.last_name %>, <%= @order.customer.first_name %></h3>
@@ -11,15 +12,13 @@
   </div>
 
   <div id="order-show-content">
-    <% price = 0.0 %>
     <ul>
       <li class="display-product products-header"><span class="product-name text-center">Product</span><span class="product-quantity">Quantity</span><span class="product-price">Price in <i class="fas fa-euro-sign"></i></span></li>
       <% @order.order_products.each do |order_product| %>
-        <% price += order_product.product.price.to_f * order_product.quantity.to_i %>
         <li class="display-product"><span class="product-name"><%= order_product.product.name %></span><span class="product-quantity"><%= order_product.quantity %></span><span class="product-price"><%= order_product.product.price %></span></li>
       <% end %>
     </ul>
   </div>
 
-  <div class="d-flex"><span class="flex-grow-1"></span><span>Total Price: <%= price %><i class="fas fa-euro-sign"></i></span></div>
+  <div id="order-show-footer"><span class="flex-grow-1"></span><span>Total Price: <%= @order.total_price %><i class="fas fa-euro-sign"></i></span></div>
 </div>
