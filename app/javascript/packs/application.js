@@ -12,7 +12,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
@@ -29,5 +28,9 @@ document.addEventListener('turbolinks:load', () => {
   $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
   });
+
+  if (window.location.href == "http://localhost:3000/orders/new") {
+    $('#search-customer').modal();
+  }
 
 });

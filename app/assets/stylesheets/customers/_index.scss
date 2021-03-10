@@ -17,6 +17,8 @@
   border: 1px solid $my_light ;
   border-radius: 50px;
   padding: 50px;
+  overflow-y: auto;
+  height: calc(100vh - 112px);
 }
 
 .row-header {
