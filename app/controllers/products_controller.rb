@@ -3,10 +3,11 @@ class ProductsController < ApplicationController
 
   def index
     if params[:query].present?
-      @products = Product.search_name_and_category(params[:query])
+      @products = Product.search_name(params[:query])
       @products_all = policy_scope(Product)
 
-      @products_all if @products.empty?
+       policy_scope(Product) if @products.empty?
+
     else
       @products = policy_scope(Product)
     end
@@ -54,8 +55,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:restaurant).permit(:name, :price, :price_in_menu,
-                                       :description)
+    params.require(:product).permit(:name, :price, :price_in_menu, :description)
   end
 
   def find_product
