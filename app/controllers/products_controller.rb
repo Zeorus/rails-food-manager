@@ -1,12 +1,20 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only: [:show, :edit, :destroy]
+  before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
+    @categories = Category.all.map do |category|
+      category
+    end
+
+    @product = Product.new
+    @category = Category.new
+
     if params[:query].present?
-      @products = Product.search_name_and_category(params[:query])
+      @products = Product.search_name(params[:query])
       @products_all = policy_scope(Product)
 
-      @products_all if @products.empty?
+       policy_scope(Product) if @products.empty?
+
     else
       @products = policy_scope(Product)
     end
@@ -16,18 +24,12 @@ class ProductsController < ApplicationController
     authorize @product
   end
 
-  def new
-    @product = Product.new
-    authorize @product
-  end
-
   def create
-    @product = Product.new
+    @product = Product.new(product_params)
+    @product.category = Category.find(params["product"]["category_id"])
     authorize @product
-    if @product.save(product_params)
-      render :index
-    else
-      render :new
+    if @product.save
+      redirect_to products_path, notice: "Product was successfully created"
     end
   end
 
@@ -35,13 +37,13 @@ class ProductsController < ApplicationController
     authorize @product
   end
 
-  def updates
+  def update
     @product = Product.new
     authorize @product
     if @product.update(product_params)
-      render :index
+      redirect_to products_path, notice: "Product was successfully updated"
     else
-      render :show
+      render :edit
     end
   end
 
@@ -54,8 +56,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:restaurant).permit(:name, :price, :price_in_menu,
-                                       :description, :category, :sub_category)
+    params.require(:product).permit(:name, :price, :price_in_menu, :description)
   end
 
   def find_product

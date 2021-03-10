@@ -6,6 +6,16 @@
     <%= render "product_card", products: @products %>
    <% end %>
 </div>
-<div class="text-right pt-4">
-  <%= link_to "Create Product", new_product_path, class: "btn-large btn-product" %>
+<div class="text-right pt-2">
+  <div class="btn-content">
+    <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#productModal" data-product=" <%= @product = Product.new %> ">
+      New Product
+    </button>
+    <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#categoryModal" data-category=" <%= @category = Category.new %> ">
+      New Category
+    </button>
+  </div>
+  <div class="btn-content">
+  <%= render 'modal_products' %>
+  <%= render 'modal_categories' %>
 </div>
