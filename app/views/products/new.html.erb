@@ -2,7 +2,7 @@
   <%= simple_form_for(@product) do |f| %>
     <div id="info">
       <%= f.input :name, placeholder: "sushi" %>
-      <%= f.input :category, collection: @products.category %>
+      <%= f.input :category, collection: .category %>
       <%= f.input :sub_category %>
       <%= f.input :description, as: :text %>
       <%= f.input :price, placeholder: "5€" %>

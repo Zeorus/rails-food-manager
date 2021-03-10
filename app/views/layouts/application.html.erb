@@ -24,7 +24,7 @@
     </div>
 
     <%= render 'shared/flashes' %>
-    <%= render 'shared/modal_customer' %>
+    <%= render 'shared/modal_customer' if user_signed_in? %>
 
   </body>
 </html>
