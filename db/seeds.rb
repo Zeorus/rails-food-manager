@@ -1,5 +1,8 @@
 require 'faker'
 
+puts "Clean DB Orders"
+Order.destroy_all
+
 puts "Clean DB customers"
 Customer.destroy_all
 
@@ -268,7 +271,7 @@ desserts.each do |d|
   product.save
 end
 
-puts "Deserts created !"
+puts "Desserts created !"
 
 drinks.each do |d|
   product = Product.new(d)
