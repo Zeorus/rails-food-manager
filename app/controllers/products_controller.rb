@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:restaurant).permit(:name, :price, :price_in_menu,
-                                       :description, :category, :sub_category)
+                                       :description)
   end
 
   def find_product
