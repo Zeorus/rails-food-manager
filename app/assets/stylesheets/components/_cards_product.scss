@@ -3,9 +3,9 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
   padding: 24px;
-  border: solid 3px $my_primary;
+  border: solid 2px $my_primary;
   overflow-y: auto;
-  height: calc(100vh - 170px);
+  height: calc(100vh - 210px);
   border-radius: 12px;
 }
 
