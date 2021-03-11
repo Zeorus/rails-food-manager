@@ -9,6 +9,9 @@ class Product < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search_name,
     against: [:name],
+    associated_against: {
+      category: [:name]
+    },
     using: {
       tsearch: { prefix: true }
     }

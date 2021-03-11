@@ -14,6 +14,7 @@
     <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#categoryModal" data-category=" <%= @category = Category.new %> ">
       New Category
     </button>
+    <%= link_to "Edit Categories", categories_path, class: "btn-large nav-link btn-product"  %>
   </div>
   <div class="btn-content">
   <%= render 'modal' %>
