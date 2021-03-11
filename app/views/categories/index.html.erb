@@ -1,6 +1,13 @@
 <% @categories.each do |category| %>
-  <%= category.name %>
-  <a href="#categoryEditModal<%= category.id %>" data-toggle="modal" data-target="#categoryEditModal<%= category.id %>" data-edit=" <%= @category = category %>">edit</a>
-  <%= link_to "destroy", category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %>
-  <%= render "modalEdit" %>
+  <div class="category">
+    <%= category.name %>
+    <a href="#categoryEditModal<%= category.id %>" data-toggle="modal" data-target="#categoryEditModal<%= category.id %>" data-edit=" <%= @category = category %>">
+      <i class="fas fa-edit"></i>
+    </a>
+    <%= link_to category_path(category), method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+    <%= render "modalEdit" %>
+  </div>
 <% end %>
+

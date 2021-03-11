@@ -11,6 +11,8 @@ class ProductsController < ApplicationController
     @product = Product.new
     @category = Category.new
 
+    @category = policy_scope(Category)
+
     @products = policy_scope(Product)
     @productHash = {}
     @products.each do |product|
@@ -21,6 +23,7 @@ class ProductsController < ApplicationController
         @productHash["#{category_name}"] = [product]
       end
     end
+
 
 
   end

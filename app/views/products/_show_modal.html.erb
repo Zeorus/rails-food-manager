@@ -7,11 +7,16 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= @product.name %>
-        <%= @product.description %>
-        <%= @product.price %>
-        <%= @product.price_in_menu %>
-        <%= @product.category.name %>
+        <h2><%= @product.name %></h2>
+        <h3><%= @product.category.name %></h3>
+        <% if @product.photo.attached?%>
+          <%= cl_image_tag product.photo.key, class: "image_product text-center" %>
+        <% else %>
+          <%= image_tag "default_image.jpg",class: "image_product text-center" %>
+        <% end %>
+        <h5><%= @product.description %></h5>
+        <h4><%= @product.price %></h4>
+        <h4><%= @product.price_in_menu %></h4>
       </div>
     </div>
   </div>

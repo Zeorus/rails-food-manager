@@ -43,3 +43,14 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 end
+
+@products = policy_scope(Product)
+      @productHash = {}
+      @products.each do |product|
+        category_name = product.category.name
+        if @productHash.key?(category_name)
+          @productHash["#{category_name}"].push(product)
+        else
+          @productHash["#{category_name}"] = [product]
+        end
+      end
