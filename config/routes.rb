@@ -7,9 +7,14 @@ Rails.application.routes.draw do
 
   resources :customers
 
-  resources :orders, only: [:index, :new, :create]
+  resources :orders, except: [:edit]
 
   resources :products
 
+<<<<<<< HEAD
   resources :categories
+=======
+  resources :categories, only: [:create]
+  
+>>>>>>> 9c48df20032ad5c5356e56ea3e881a74b0523e5d
 end

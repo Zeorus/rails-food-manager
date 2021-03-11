@@ -8,9 +8,13 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     authorize @category
     if @category.save
+<<<<<<< HEAD
       redirect_to products_path, notice: "category was successfully created"
     else
       render :new
+=======
+      redirect_to products_path, notice: "Category was successfully created"
+>>>>>>> 9c48df20032ad5c5356e56ea3e881a74b0523e5d
     end
   end
 
@@ -21,7 +25,11 @@ class CategoriesController < ApplicationController
   def update
     authorize @category
     if @category.update(category_params)
+<<<<<<< HEAD
       redirect_to categories_path, notice: "category was successfully updated"
+=======
+      redirect_to products_path, notice: "Category was successfully updated"
+>>>>>>> 9c48df20032ad5c5356e56ea3e881a74b0523e5d
     else
       render :index
     end
@@ -30,7 +38,7 @@ class CategoriesController < ApplicationController
   def destroy
     authorize @category
     @category.destroy
-    redirect_to categories_path
+    redirect_to categories_path, notice: "Category was successfully deleted"
   end
 
   private

@@ -1,58 +1,68 @@
-<div class="container">
-  <div class="container container-customer">
-    <div id="orders-searchbar">
-      <%= form_tag customers_path, method: :get do %>
-          <div class="laptop-searchbar">
-            <%= text_field_tag :query,
-              params[:query],
-              class: "input-form",
-              placeholder: "Find a customer"
-            %>
-            <button type="submit">
-                <i class="fas fa-search"></i>
-            </button>
-          </div>
-      <% end %>
-     </div>
-
-    <div class="row row-header">
-      <div class="col-2">Name</div>
-      <div class="col-2">Phone Number</div>
-      <div class="col-2">Address</div>
-      <div class="col-2">City</div>
-      <div class="col-2">Action</div>
+<div id="customers-list-container">
+  <div id="orders-searchbar">
+    <%= form_tag customers_path, method: :get do %>
+        <div class="laptop-searchbar">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "input-form",
+            placeholder: "Find a customer"
+          %>
+          <button type="submit">
+              <i class="fas fa-search"></i>
+          </button>
+        </div>
+    <% end %>
     </div>
-    <% @customers.each do |customer| %>
-      <div class="row row-customer">
-        <div class="col-2"> <%= customer.last_name.capitalize%>
-          <%= customer.first_name.capitalize%></div>
-        <div class="col-2"><%= customer.phone_number%></div>
-        <div class="col-2"><%= customer.address %></div>
-        <div class="col-2"><%= customer.city%></div>
-        <div class="col-2">
-          <i class="fas fa-user-edit dropdown-toggle nav-item dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a href="#customerEdit<%= customer.id %>" data-toggle="modal" data-target="#customerEdit<%= customer.id %>" class="dropdown-item dropdown-item-top" data-edit=" <%= @customer = customer %>">edit</a>
-            <%= link_to "destroy", customer_path(customer), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item dropdown-item-bottom" %>
-        </div>
-        </div>
-      </div>
-       <div class="modal fade" id="customerEdit<%= customer.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+
+
+  <div id="customers-list">
+    <div id="customers-header">
+      <span class="tabs-item-name">Name</span>
+      <span class="tabs-item-phone">Phone Number</span>
+      <span class="tabs-item-address">Address</span>
+      <span class="tabs-item-city">City</span>
+      <span class="tabs-item-actions">Actions</span>
+    </div>
+
+    <div id="customers-content">
+      <% if @customers != [] %>
+        <% @customers.each do |customer| %>
+          <div class="customer-row">
+            <span class="tabs-item-name"><%= customer.last_name.capitalize%> <%= customer.first_name.capitalize%></span>
+            <span class="tabs-item-phone"><%= customer.phone_number%></span>
+            <span class="tabs-item-address"><%= customer.address %></span>
+            <span class="tabs-item-city"><%= customer.city%></span>
+            <span class="tabs-item-actions">
+              <i class="fas fa-user-edit dropdown-toggle nav-item dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a href="#customerEdit<%= customer.id %>" data-toggle="modal" data-target="#customerEdit<%= customer.id %>" class="dropdown-item dropdown-item-top" data-edit=" <%= @customer = customer %>">Edit</a>
+                  <%= link_to "Destroy", customer_path(customer), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item dropdown-item-bottom" %>
+                </div>
+            </span>
           </div>
+<<<<<<< HEAD
           <div class="modal-body">
             <%= render 'form' %>
+=======
+
+          <div class="modal fade" id="customerEdit<%= customer.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= render 'customers/form' %>
+                </div>
+              </div>
+            </div>
+>>>>>>> 9c48df20032ad5c5356e56ea3e881a74b0523e5d
           </div>
-        </div>
-      </div>
-    </div>
-    <% end %>
+        <% end %>
+      <% else %>
+        <p>No customer yet</p>
+      <% end %>
   </div>
-
 </div>
-

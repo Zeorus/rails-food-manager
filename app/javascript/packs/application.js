@@ -19,9 +19,11 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
+import "controllers";
 
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+// Internal imports
+import { displayProducts } from '../plugins/select_products';
+import { changeStatus } from '../plugins/change_status';
 
 document.addEventListener('turbolinks:load', () => {
   
@@ -29,8 +31,13 @@ document.addEventListener('turbolinks:load', () => {
     $('[data-toggle="tooltip"]').tooltip(); 
   });
 
-  if (window.location.href == "http://localhost:3000/orders/new") {
+  if (document.getElementById('new-order-container')) {
     $('#search-customer').modal();
+    displayProducts();
+  }
+
+  if (document.getElementById('order-show-container')) {
+    changeStatus()
   }
 
 });
