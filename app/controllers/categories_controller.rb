@@ -6,6 +6,8 @@ class CategoriesController < ApplicationController
     authorize @category
     if @category.save
       redirect_to products_path, notice: "category was successfully created"
+    else
+      #render "../views/categories/form"
     end
   end
 

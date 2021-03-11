@@ -44,7 +44,6 @@ class CustomersController < ApplicationController
     redirect_to customers_path
   end
 
-
   private
 
   def find_customer

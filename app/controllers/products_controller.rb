@@ -2,19 +2,22 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
+    # category modal
     @categories = Category.all.map do |category|
       category
     end
 
+    # new Product / Category
     @product = Product.new
     @category = Category.new
 
+
+    # searchbar / index
     if params[:query].present?
       @products = Product.search_name(params[:query])
       @products_all = policy_scope(Product)
 
-       policy_scope(Product) if @products.empty?
-
+      policy_scope(Product) if @products.empty?
     else
       @products = policy_scope(Product)
     end
@@ -30,6 +33,8 @@ class ProductsController < ApplicationController
     authorize @product
     if @product.save
       redirect_to products_path, notice: "Product was successfully created"
+    else
+      #render "views/products/form_products"
     end
   end
 
@@ -38,7 +43,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.new
     authorize @product
     if @product.update(product_params)
       redirect_to products_path, notice: "Product was successfully updated"

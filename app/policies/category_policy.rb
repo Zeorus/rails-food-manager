@@ -1,4 +1,4 @@
-class ProductPolicy < ApplicationPolicy
+class CategoryPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -22,7 +22,7 @@ class ProductPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    edit?
   end
 
   def destroy?
