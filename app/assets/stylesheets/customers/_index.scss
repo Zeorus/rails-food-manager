@@ -14,7 +14,7 @@
 #customers-header {
   display: flex;
   color: $my_dark_one;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: bold;
   padding-bottom: 16px;
 }
@@ -22,11 +22,15 @@
 .customer-row {
   display: flex;
   align-items: center;
-  font-size: 12px;
+  font-size: 16px;
   border: 1px solid $my_light;
   height: 42px;
   border-radius: 50px;
   margin-bottom: 16px;
+
+  .fa-user-edit {
+    font-size: 16px;
+  }
 }
 
 .tabs-item-name {
@@ -48,3 +52,4 @@
 .tabs-item-actions {
   flex: 0 0 15%;
 }
+

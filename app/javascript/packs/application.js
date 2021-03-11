@@ -24,20 +24,15 @@ import "controllers";
 // Internal imports
 import { displayProducts } from '../plugins/select_products';
 
-
 document.addEventListener('turbolinks:load', () => {
   
   $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
   });
 
-  if ((window.location.href == "https://thefoodmanager.herokuapp.com/orders/new") || (window.location.href == "http://localhost:3000/orders/new")) {
+  if (document.getElementById('new-order-container')) {
     $('#search-customer').modal();
     displayProducts();
   }
-
-  // if (window.location.href == ("http://localhost:3000/orders/new" || "https://thefoodmanager.herokuapp.com/orders/new")) {
-  //   displayProducts();
-  // }
 
 });

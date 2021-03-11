@@ -17,7 +17,7 @@
 #orders-header {
   display: flex;
   color: $my_dark_one;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: bold;
   padding-bottom: 16px;
 }
@@ -49,11 +49,15 @@
 .order-row {
   display: flex;
   align-items: center;
-  font-size: 12px;
+  font-size: 16px;
   border: 1px solid $my_light;
   height: 42px;
   border-radius: 50px;
   margin-bottom: 16px;
+
+  &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
 }
 
 #btn-regroup-loc {
