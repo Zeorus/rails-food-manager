@@ -4,7 +4,7 @@
     <%= render "product_card", products: @products_all %>
   <% else %>
     <%= render "product_card", products: @products %>
-   <% end %>
+  <% end %>
 </div>
 <div class="text-right pt-2">
   <div class="btn-content">
@@ -16,6 +16,6 @@
     </button>
   </div>
   <div class="btn-content">
-  <%= render 'modal_products' %>
+  <%= render 'modal' %>
   <%= render 'categories/modal' %>
 </div>

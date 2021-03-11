@@ -1,13 +1,16 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @categories = policy_scope(Category)
+  end
   def create
     @category = Category.new(category_params)
     authorize @category
     if @category.save
       redirect_to products_path, notice: "category was successfully created"
     else
-      #render "../views/categories/form"
+      render :new
     end
   end
 
@@ -15,13 +18,12 @@ class CategoriesController < ApplicationController
     authorize @category
   end
 
-  def updates
-    @category = Category.new
+  def update
     authorize @category
     if @category.update(category_params)
-      redirect_to products_path, notice: "category was successfully updated"
+      redirect_to categories_path, notice: "category was successfully updated"
     else
-      render :show
+      render :index
     end
   end
 
@@ -38,6 +40,6 @@ class CategoriesController < ApplicationController
   end
 
   def find_category
-    @category = category.find(params[:id])
+    @category = Category.find(params[:id])
   end
 end

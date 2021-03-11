@@ -7,6 +7,10 @@ class ProductsController < ApplicationController
       category
     end
 
+    # products by category
+    @last = 0
+    @products_by_category = policy_scope(Product).order(:category_id)
+
     # new Product / Category
     @product = Product.new
     @category = Category.new
@@ -34,7 +38,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to products_path, notice: "Product was successfully created"
     else
-      #render "views/products/form_products"
+      render :new
     end
   end
 
