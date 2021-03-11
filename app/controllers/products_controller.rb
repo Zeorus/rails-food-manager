@@ -2,22 +2,30 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
+    # category modal
     @categories = Category.all.map do |category|
       category
     end
 
+    # new Product / Category
     @product = Product.new
     @category = Category.new
 
-    if params[:query].present?
-      @products = Product.search_name(params[:query])
-      @products_all = policy_scope(Product)
+    @category = policy_scope(Category)
 
-       policy_scope(Product) if @products.empty?
-
-    else
-      @products = policy_scope(Product)
+    @products = policy_scope(Product)
+    @productHash = {}
+    @products.each do |product|
+      category_name = product.category.name
+      if @productHash.key?(category_name)
+        @productHash["#{category_name}"].push(product)
+      else
+        @productHash["#{category_name}"] = [product]
+      end
     end
+
+
+
   end
 
   def show
@@ -30,6 +38,8 @@ class ProductsController < ApplicationController
     authorize @product
     if @product.save
       redirect_to products_path, notice: "Product was successfully created"
+    else
+      render :new
     end
   end
 
@@ -38,7 +48,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.new
     authorize @product
     if @product.update(product_params)
       redirect_to products_path, notice: "Product was successfully updated"

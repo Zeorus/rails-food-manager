@@ -22,7 +22,7 @@ class CategoryPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    edit?
   end
 
   def destroy?

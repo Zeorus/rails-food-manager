@@ -6,26 +6,26 @@ class ProductPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    @user.role == "admin"
   end
 
   def new?
-    true
+    @user.role == "admin"
   end
 
   def create?
-    true
+    @user.role == "admin"
   end
 
   def edit?
-    true
+    @user.role == "admin"
   end
 
   def update?
-    true
+    @user.role == "admin"
   end
 
   def destroy?
-    true
+    @user.role == "admin"
   end
 end
