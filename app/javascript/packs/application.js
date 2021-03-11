@@ -22,7 +22,7 @@ import "bootstrap";
 import "controllers";
 
 // Internal imports
-import { displayProducts } from '../plugins/select_products';
+// import { displayProducts } from '../plugins/select_products';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -35,8 +35,8 @@ document.addEventListener('turbolinks:load', () => {
     $('#search-customer').modal();
   }
 
-  if (window.location.href == ("http://localhost:3000/orders/new" || "https://thefoodmanager.herokuapp.com/orders/new")) {
-    displayProducts();
-  }
+  // if (window.location.href == ("http://localhost:3000/orders/new" || "https://thefoodmanager.herokuapp.com/orders/new")) {
+  //   displayProducts();
+  // }
 
 });
