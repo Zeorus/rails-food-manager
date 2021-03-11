@@ -63,3 +63,27 @@
 #btn-regroup-loc {
   padding: 8px;
 }
+
+.order-status-pending {
+  background-color: $red;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  padding: 8px;
+}
+
+.order-status-delivered {
+  background-color: $green;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  padding: 8px;
+}
+
+.order-status-delivering {
+  background-color: $orange;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  padding: 8px;
+}

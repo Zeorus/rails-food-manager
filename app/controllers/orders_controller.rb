@@ -44,9 +44,16 @@ class OrdersController < ApplicationController
     redirect_to orders_path, notice: "Order was successfully deleted"
   end
 
+  def update
+    @order = Order.find(params[:id])
+    authorize @order
+    @order.update(order_params)
+    redirect_to order_path(@order), notice: "Delivery Status was successfully updated"
+  end
+
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :recovery_mode, :total_price)
+    params.require(:order).permit(:payment_method, :recovery_mode, :total_price, :delivery_status)
   end
 end
