@@ -20,7 +20,13 @@
           <% @products.each do |product| %>
             <div class="order-content-product" data-category="<%= product.category.name %>" data-controller="product" data-action="click->product#add">
               <div class="order-product-card">
-                <div class="order-img-container"><%= image_tag "default_image.jpg" %></div>
+                <div class="order-img-container">
+                  <% if product.photo.attached? %>
+                    <%= cl_image_tag product.photo.key %>
+                  <% else %>
+                    <%= image_tag "default_image.jpg" %>
+                  <% end %>
+                </div>
                 <div class="product-content" data-product-target="product" data-product_id="<%= product.id %>" data-product_price="<%= product.price %>" data-product_name="<%= product.name %>">
                   <p class="order-product-name"><%= product.name %></p>
                   <p class="order-product-desc"><%= product.description %></p>
