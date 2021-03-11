@@ -21,8 +21,9 @@ ActiveStorage.start()
 import "bootstrap";
 import "controllers";
 
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+// Internal imports
+import { displayProducts } from '../plugins/select_products';
+
 
 document.addEventListener('turbolinks:load', () => {
   
@@ -32,6 +33,10 @@ document.addEventListener('turbolinks:load', () => {
 
   if (window.location.href == ("http://localhost:3000/orders/new" || "https://thefoodmanager.herokuapp.com/orders/new")) {
     $('#search-customer').modal();
+  }
+
+  if (window.location.href == ("http://localhost:3000/orders/new")) {
+    displayProducts()
   }
 
 });
