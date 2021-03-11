@@ -3,7 +3,7 @@
   color: white;
   height: calc(100vh - 72px);
   // flex: 0 0 150px;
-  width: 175px;
+  width: 250px;
   background: $my_background;
   display: flex;
   flex-direction: column;
@@ -18,8 +18,8 @@
 }
 
 .link-side-nav {
-  width: 160px;
-  padding: 8px 0 8px 16px;
+  width: 210px;
+  padding: 8px 0 8px 30px;
   margin: 16px 0;
   font-size: 18px;
   border-radius: 0 50px 50px 0;

@@ -10,7 +10,7 @@
         <h2><%= @product.name %></h2>
         <h3><%= @product.category.name %></h3>
         <% if @product.photo.attached?%>
-          <%= cl_image_tag product.photo.key, class: "image_product text-center" %>
+          <%= cl_image_tag @product.photo.key, class: "image_product text-center" %>
         <% else %>
           <%= image_tag "default_image.jpg",class: "image_product text-center" %>
         <% end %>

@@ -2,6 +2,7 @@
   <%= simple_form_for(@category) do |f| %>
     <div id="info">
       <%= f.input :name, placeholder: "starter" %>
+      <%= f.input :icon %>
       <%= f.submit "Submit", class: "button" %>
     </div>
   <% end %>
