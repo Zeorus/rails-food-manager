@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :customers
 
-  resources :orders, except: [:edit, :update]
+  resources :orders, except: [:edit]
 
   resources :products, except: [:show]
 

@@ -33,7 +33,7 @@
               <span class="tabs-item-price"><%= order.total_price %> €</span>
               <span class="tabs-item-address"><%= order.customer.address %></span>
               <span class="tabs-item-city"><%= order.customer.city %></span>
-              <span class="tabs-item-status"><%= order.delivery_status %></span>
+              <span class="tabs-item-status"><span class="order-status-<%= order.delivery_status %>"><%= order.delivery_status.capitalize %></span></span>
             </div>
           <% end %>
         <% end %>

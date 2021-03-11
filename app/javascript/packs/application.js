@@ -23,6 +23,7 @@ import "controllers";
 
 // Internal imports
 import { displayProducts } from '../plugins/select_products';
+import { changeStatus } from '../plugins/change_status';
 
 document.addEventListener('turbolinks:load', () => {
   
@@ -33,6 +34,10 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementById('new-order-container')) {
     $('#search-customer').modal();
     displayProducts();
+  }
+
+  if (document.getElementById('order-show-container')) {
+    changeStatus()
   }
 
 });
