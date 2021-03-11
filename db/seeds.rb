@@ -12,13 +12,13 @@ Product.destroy_all
 puts "Clean DB Category"
 Category.destroy_all
 
-platter = Category.create(name:"Platters")
-noodle = Category.create(name:"Noodles")
-fried_chicken = Category.create(name:"Frieds Chicken")
-starter = Category.create(name:"Starters")
-extra = Category.create(name:"Extras")
-dessert = Category.create(name:"Desserts")
-drink = Category.create(name:"Drinks")
+platter = Category.create(name: "Platters", icon: "platters.png")
+noodle = Category.create(name: "Noodles", icon: "noodles.png")
+fried_chicken = Category.create(name: "Frieds Chicken", icon: "chicken.png")
+starter = Category.create(name: "Starters", icon: "starters.png")
+extra = Category.create(name: "Extras", icon: "extras.png")
+dessert = Category.create(name: "Desserts", icon: "desserts.png")
+drink = Category.create(name: "Drinks", icon: "drinks.png")
 
 puts "Created Category"
 

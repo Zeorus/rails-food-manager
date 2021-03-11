@@ -9,10 +9,11 @@ class OrdersController < ApplicationController
   authorize @order
   end
 
-  def new 
+  def new
     @order = Order.new
     authorize @order
     @products = Product.all
+    @categories = Category.all
     @customer = Customer.find_by(phone_number: params[:query])
     if params[:query] != nil && @customer == nil
       redirect_to customers_path, notice: "\"#{params[:query]}\# is an unknown number"
@@ -22,7 +23,6 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     authorize @order
-    raise
     @order.customer = Customer.find_by(phone_number: params[:customer])
     order_products = params[:products]
     if @order.save

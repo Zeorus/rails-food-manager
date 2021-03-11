@@ -9,7 +9,7 @@ export default class extends Controller {
     const price = parseFloat(priceField.innerText);
     const productList = document.getElementById('order-product-list');
     const poductId = parseFloat(this.productTarget.dataset.product_id);
-    const productName = this.productTarget.innerText;
+    const productName = this.productTarget.dataset.product_name;
     const productPrice = this.productTarget.dataset.product_price;
     if (document.getElementById(`product-${poductId}`)) {
       const inputField = document.getElementById(`input-product-${poductId}`);

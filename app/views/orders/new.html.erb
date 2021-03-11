@@ -1,16 +1,41 @@
 <div id="new-order-container">
   <div id="order-content">
-  <h4 id="order-content-title">Choose a category</h4>
     <div id="order-display-content">
-      <% @products.each do |product| %>
-        <div class="order-content-product" data-controller="product" data-action="click->product#add">
-          <div class="product">
-            <span data-product-target="product" data-product_id="<%= product.id %>" data-product_price="<%= product.price %>"><%= product.name %></span>
-          </div>
+
+      <div id="order-display-categories">
+        <h4 id="order-content-title">Choose a category</h4>
+        <div id="order-categories-container">
+          <% @categories.each do |category| %>
+            <div class="order-category-card" data-categoryname="<%= category.name %>">
+              <div><%= image_tag "categories/#{category.icon}" %></div>
+              <span><%= category.name %></span>
+            </div>
+          <% end %>
+        </div>  
+      </div>
+
+      <div id="order-display-products">
+        <span class="btn-large" id="btn-back-categories">Back</span>
+        <div id="order-products-container">
+          <% @products.each do |product| %>
+            <div class="order-content-product" data-category="<%= product.category.name %>" data-controller="product" data-action="click->product#add">
+              <div class="order-product-card">
+                <div class="order-img-container"><%= image_tag "default_image.jpg" %></div>
+                <div class="product-content" data-product-target="product" data-product_id="<%= product.id %>" data-product_price="<%= product.price %>" data-product_name="<%= product.name %>">
+                  <p class="order-product-name"><%= product.name %></p>
+                  <p class="order-product-desc"><%= product.description %></p>
+                  <p class="order-product-price"><%= product.price %> €</p>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
+
     </div>
   </div>
+
+
   <%= simple_form_for @order do |f| %>
     <div id="order-sidebar">
       <h5>New Order</h5>
@@ -26,7 +51,7 @@
         <% end %>
       </div>
       
-      <div id="order-products-container">
+      <div id="order-products-sidecontainer">
         <h6>Order Products</h6>
         <ul id="order-product-list">
           <%# insert products here %>
