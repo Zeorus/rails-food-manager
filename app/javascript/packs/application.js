@@ -33,6 +33,9 @@ document.addEventListener('turbolinks:load', () => {
 
   if (window.location.href == ("http://localhost:3000/orders/new" || "https://thefoodmanager.herokuapp.com/orders/new")) {
     $('#search-customer').modal();
+  }
+
+  if (window.location.href == ("http://localhost:3000/orders/new" || "https://thefoodmanager.herokuapp.com/orders/new")) {
     displayProducts();
   }
 

@@ -1,42 +1,50 @@
-@import "components/searchbar";
+#customers-list-container {
+  background-color: white;
+  border: 1px solid $my_light;
+  border-radius: 10px;
+  padding: 16px;
+}
 
-.row-customer {
-  display: grid;
-  grid-template-column: 1fr 1fr 1fr 1fr;
-  gap: 16px;
+#customers-list {
+  margin-top: 16px;
+  width: 100%;
+  text-align: center;
+}
+
+#customers-header {
   display: flex;
-  justify-content: space-between;
-  border: 1px solid $my_light ;
-  border-radius: 50px;
-  padding: 20px;
-  height: 100px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  color: $my_dark_one;
+  font-size: 12px;
+  font-weight: bold;
+  padding-bottom: 16px;
+}
+
+.customer-row {
+  display: flex;
   align-items: center;
-}
-
-.container-customer {
-  border: 1px solid $my_light ;
+  font-size: 12px;
+  border: 1px solid $my_light;
+  height: 42px;
   border-radius: 50px;
-  padding: 50px;
-  overflow-y: auto;
-  height: calc(100vh - 112px);
+  margin-bottom: 16px;
 }
 
-.row-header {
-
-  gap: 16px;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
+.tabs-item-name {
+  flex: 0 0 20%;
 }
 
-.fa-user-edit:hover {
-  cursor: pointer;
+.tabs-item-phone {
+  flex: 0 0 20%;
 }
 
+.tabs-item-address {
+  flex: 0 0 30%;
+}
 
+.tabs-item-city {
+  flex: 0 0 15%;
+}
 
-
-
-
+.tabs-item-actions {
+  flex: 0 0 15%;
+}
