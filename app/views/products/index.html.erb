@@ -1,7 +1,5 @@
 <%= render "searchbar" %>
-<div class="cards_product">
-  <%= render "product_card", products: @products_by_category %>
-</div>
+<%= render "product_card", products: @productHash %>
 <div class="text-right pt-2">
   <div class="btn-content">
     <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#productModal" data-product=" <%= @product = Product.new %> ">
@@ -11,7 +9,6 @@
       New Category
     </button>
     <%= link_to "Edit Categories", categories_path, class: "btn-large nav-link btn-product"  %>
-  </div>
   <div class="btn-content">
   <%= render 'modal' %>
   <%= render 'categories/modal' %>

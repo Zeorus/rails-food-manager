@@ -7,24 +7,22 @@ class ProductsController < ApplicationController
       category
     end
 
-    # products by category
-    @last = 0
-    @products_by_category = policy_scope(Product).order(:category_id)
-
     # new Product / Category
     @product = Product.new
     @category = Category.new
 
-
-    # searchbar / index
-    if params[:query].present?
-      @products = Product.search_name(params[:query])
-      @products_all = policy_scope(Product)
-
-      policy_scope(Product) if @products.empty?
-    else
-      @products = policy_scope(Product)
+    @products = policy_scope(Product)
+    @productHash = {}
+    @products.each do |product|
+      category_name = product.category.name
+      if @productHash.key?(category_name)
+        @productHash["#{category_name}"].push(product)
+      else
+        @productHash["#{category_name}"] = [product]
+      end
     end
+
+
   end
 
   def show
