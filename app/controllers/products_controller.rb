@@ -1,14 +1,27 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only: [:show, :edit, :destroy]
+  before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query].present?
-      @products = Product.search_name_and_category(params[:query])
-      @products_all = policy_scope(Product)
+    # category modal
+    @categories = Category.all.map do |category|
+      category
+    end
 
-      @products_all if @products.empty?
-    else
-      @products = policy_scope(Product)
+    # new Product / Category
+    @product = Product.new
+    @category = Category.new
+
+    @category = policy_scope(Category)
+
+    @products = policy_scope(Product)
+    @productHash = {}
+    @products.each do |product|
+      category_name = product.category.name
+      if @productHash.key?(category_name)
+        @productHash["#{category_name}"].push(product)
+      else
+        @productHash["#{category_name}"] = [product]
+      end
     end
   end
 
@@ -16,16 +29,12 @@ class ProductsController < ApplicationController
     authorize @product
   end
 
-  def new
-    @product = Product.new
-    authorize @product
-  end
-
   def create
-    @product = Product.new
+    @product = Product.new(product_params)
+    @product.category = Category.find(params["product"]["category_id"])
     authorize @product
-    if @product.save(product_params)
-      render :index
+    if @product.save
+      redirect_to products_path, notice: "Product was successfully created"
     else
       render :new
     end
@@ -35,27 +44,25 @@ class ProductsController < ApplicationController
     authorize @product
   end
 
-  def updates
-    @product = Product.new
+  def update
     authorize @product
     if @product.update(product_params)
-      render :index
+      redirect_to products_path, notice: "Product was successfully updated"
     else
-      render :show
+      render :edit
     end
   end
 
   def destroy
     authorize @product
     @product.destroy
-    redirect_to products_path
+    redirect_to products_path, notice: "Product was successfully deleted"
   end
 
   private
 
   def product_params
-    params.require(:restaurant).permit(:name, :price, :price_in_menu,
-                                       :description, :category, :sub_category)
+    params.require(:product).permit(:name, :price, :price_in_menu, :description, :photo, :category_id)
   end
 
   def find_product

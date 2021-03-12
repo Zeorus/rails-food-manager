@@ -1,11 +1,12 @@
+<div class="btn-content">
+  <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#productModal" data-product=" <%= @product = Product.new %> ">
+    New Product
+  </button>
+  <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#categoryModal" data-category=" <%= @category = Category.new %> ">
+    New Category
+  </button>
+  <%= render 'modal' %>
+  <%= render 'categories/modal' %>
+</div>
 <%= render "searchbar" %>
-<div class="cards_product">
-  <% if @products.empty?%>
-    <%= render "product_card", products: @products_all %>
-  <% else %>
-    <%= render "product_card", products: @products %>
-   <% end %>
-</div>
-<div class="text-right pt-4">
-  <%= link_to "Create Product", new_product_path, class: "btn-large btn-product" %>
-</div>
+<%= render "product_card", products: @productHash %>

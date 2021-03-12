@@ -1,54 +1,113 @@
 <div id="new-order-container">
   <div id="order-content">
-    <div id="order-choose-category">
-      <h4>Choose a category</h4>
-    </div>
-  </div>
-  <div id="order-sidebar">
-    <h5>New Order</h5>
-    <div id="order-customer-infos">
-      <h6>Customer</h6>
-      <% if @customer != nil %>
-        <p>First Name: <%= @customer.first_name %></p>
-        <p>Last Name: <%= @customer.last_name %></p>
-        <p>Phone: <%= @customer.phone_number %></p>
-        <p>Address: <%= @customer.address %></p>
-        <p>City: <%= @customer.city %></p>
-      <% end %>
-    </div>
-    <div id="order-products-container">
-      <h6>Order Products</h6>
-      <ul id="order-product-list">
-        <li>test</li>
-      </ul>
-      <h6 id="total-order-price">Total Price: <span>€</span></h6>
-    </div>
-    <%= link_to "Create order", new_order_path, class: "btn-large", id: "btn-create-order" %>
-  </div>
-</div>
+    <div id="order-display-content">
 
-<div class="modal fade" id="search-customer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Enter customer phone number</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div id="order-display-categories">
+        <h4 id="order-content-title">Choose a category</h4>
+        <div id="order-categories-container">
+          <% @categories.each do |category| %>
+            <div class="order-category-card" data-categoryname="<%= category.name %>">
+              <div><%= image_tag "categories/#{category.icon}" %></div>
+              <span><%= category.name %></span>
+            </div>
+          <% end %>
+        </div>  
       </div>
-      <div class="modal-body">
-        <%= form_tag new_order_path, method: :get do %>
-          <div class="laptop-searchbar">
-            <%= text_field_tag :query,
-              params[:query],
-              class: "input-form",
-              placeholder: "Enter phone number"%>
-              <button type="submit">
-                <i class="fas fa-search"></i>
-              </button>
-          </div>
+
+      <div id="order-display-products">
+        <span class="btn-large" id="btn-back-categories">Back</span>
+        <div id="order-products-container">
+          <% @products.each do |product| %>
+            <div class="order-content-product" data-category="<%= product.category.name %>" data-controller="product" data-action="click->product#add">
+              <div class="order-product-card">
+                <div class="order-img-container">
+                  <% if product.photo.attached? %>
+                    <%= cl_image_tag product.photo.key %>
+                  <% else %>
+                    <%= image_tag "default_image.jpg" %>
+                  <% end %>
+                </div>
+                <div class="product-content" data-product-target="product" data-product_id="<%= product.id %>" data-product_price="<%= product.price %>" data-product_name="<%= product.name %>">
+                  <p class="order-product-name"><%= product.name %></p>
+                  <p class="order-product-desc"><%= product.description %></p>
+                  <p class="order-product-price"><%= product.price %> €</p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <%= simple_form_for @order do |f| %>
+    <div id="order-sidebar">
+      <h5>New Order</h5>
+      <div id="order-customer-infos">
+        <h6>Customer</h6>
+        <% if @customer != nil %>
+          <p>First Name: <%= @customer.first_name %></p>
+          <p>Last Name: <%= @customer.last_name %></p>
+          <p>Phone: <%= @customer.phone_number %></p>
+          <p>Address: <%= @customer.address %></p>
+          <p>City: <%= @customer.city %></p>
+          <%= hidden_field_tag(:customer, @customer.phone_number) %>
         <% end %>
       </div>
+
+      <div id="order-products-sidecontainer">
+        <h6>Order Products</h6>
+        <ul id="order-product-list">
+          <%# insert products here %>
+        </ul>
+        <div class="flex-grow-1"></div>
+        <%= f.input :payment_method,
+                    required: true,
+                    as: :radio_buttons,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'category-wrapper',
+                    item_wrapper_class: 'category-item',
+                    collection: ["CB", "Espèce"] %>
+        <%= f.input :recovery_mode,
+                    required: true,
+                    as: :radio_buttons,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'category-wrapper',
+                    item_wrapper_class: 'category-item',
+                    collection: ["Livraison", "À Emporter"] %>
+        <%= f.input :total_price, as: :hidden, input_html: { value: 0.00 } %>
+        <h6 id="total-order-price">Total Price: <span id="total-price-field">0.00</span><i class="fas fa-euro-sign"></i></h6>
+      </div>
+      <%= f.submit "Create order", class: "btn-large", id: "btn-create-order" %>
+    </div>
+  <% end %>
+</div>
+
+<% if @customer == nil %>
+  <div class="modal fade" id="search-customer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Enter customer phone number</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= form_tag new_order_path, method: :get do %>
+            <div class="laptop-searchbar">
+              <%= text_field_tag :query,
+                params[:query],
+                class: "input-form",
+                placeholder: "Enter phone number"%>
+                <button type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

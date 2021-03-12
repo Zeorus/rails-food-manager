@@ -1,16 +1,13 @@
 <div class="container">
-  <div id="form-container" class="container">
   <%= simple_form_for(@customer) do |f| %>
     <div id="info">
       <%= f.input :first_name %>
       <%= f.input :last_name %>
-      <%= f.input :phone_number%>
-      <%= f.input :address %>
-      <%= f.input :zip_code %>
-      <%= f.input :city %>
-      <%= f.input :email %>
-      <%= f.submit "Submit", class: "btn-large nav-link" %>
+      <%= f.input :phone_number, required: true %>
+      <%= f.input :address, required: true %>
+      <%= f.input :zip_code, required: true  %>
+      <%= f.input :city, required: true  %>
+      <%= f.submit class: "btn-large", id: "btn-customer" %>
     </div>
   <% end %>
-</div>
 </div>

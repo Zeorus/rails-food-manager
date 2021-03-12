@@ -1,7 +1,16 @@
 .btn-large {
-  // height: 62px;
   color: white !important;
-  font-weight: bold;
-  border-radius: 50px;
-  background-color: $my_primary;
+  font-weight: bold !important;
+  border-radius: 50px !important;
+  background-color: $my_primary !important;
+  border: none !important;
+  padding: 8px 16px !important;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+#btn-customer {
+  width: 100%;
 }

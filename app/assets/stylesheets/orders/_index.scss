@@ -1,4 +1,5 @@
 @import "new";
+@import "show";
 
 #orders-list-container {
   background-color: white;
@@ -16,17 +17,17 @@
 #orders-header {
   display: flex;
   color: $my_dark_one;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: bold;
   padding-bottom: 16px;
 }
 
 .tabs-item-time {
-  flex: 0 0 12%;
+  flex: 0 0 18%;
 }
 
 .tabs-item-customer {
-  flex: 0 0 20%;
+  flex: 0 0 18%;
 }
 
 .tabs-item-price {
@@ -34,11 +35,11 @@
 }
 
 .tabs-item-address {
-  flex: 0 0 25%;
+  flex: 0 0 24%;
 }
 
 .tabs-item-city {
-  flex: 0 0 16%;
+  flex: 0 0 12%;
 }
 
 .tabs-item-status {
@@ -48,13 +49,41 @@
 .order-row {
   display: flex;
   align-items: center;
-  font-size: 12px;
+  font-size: 16px;
   border: 1px solid $my_light;
   height: 42px;
   border-radius: 50px;
   margin-bottom: 16px;
+
+  &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
 }
 
 #btn-regroup-loc {
+  padding: 8px;
+}
+
+.order-status-pending {
+  background-color: $red;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  padding: 8px;
+}
+
+.order-status-delivered {
+  background-color: $green;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  padding: 8px;
+}
+
+.order-status-delivering {
+  background-color: $orange;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
   padding: 8px;
 }
