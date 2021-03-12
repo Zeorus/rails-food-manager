@@ -21,7 +21,7 @@ class CustomersController < ApplicationController
     if @customer.save
       redirect_to new_order_path(query: @customer.phone_number), notice: "Customer was successfully created"
     else
-      render :new
+      render :new, notice: "Error. Invalid information"
     end
   end
 
@@ -33,6 +33,8 @@ class CustomersController < ApplicationController
     authorize @customer
     if @customer.update(customer_params)
       redirect_to customers_path, notice: "Customer was successfully updated"
+    else
+      render :edit, notice: "Error. Invalid information"
     end
   end
 
