@@ -11,7 +11,7 @@
           <a href="#productEditModal<%= product.id %>" data-toggle="modal" data-target="#productEditModal<%= product.id %>" class="dropdown-item dropdown-item-top" data-edit=" <%= @product = product %>">Edit</a>
           <%= link_to "Destroy", product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item dropdown-item-bottom" %>
         </div>
-        <div class="show-product" data-toggle="modal" data-target="#productShowModal" data-category=" <%= product %> ">
+        <div class="show-product" data-toggle="modal" data-target="#productShowModal<%= product.id %>" data-category=" <%= product %> ">
           <% if product.photo.attached?%>
             <%= cl_image_tag product.photo.key, class: "image_product" %>
           <% else %>
