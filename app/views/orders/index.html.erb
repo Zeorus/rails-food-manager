@@ -25,7 +25,7 @@
     </div>
     <div id="orders-content">
       <% if @orders != [] %>
-        <% @orders.each do |order| %>
+        <% @orders.sort_by(&:created_at).reverse.each do |order| %>
           <%= link_to order_path(order) do %>
             <div class="order-row">
               <span class="tabs-item-time"><%= order.created_at.strftime("%d-%m-%Y %H:%M") %></span>

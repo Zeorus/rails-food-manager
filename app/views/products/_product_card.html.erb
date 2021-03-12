@@ -1,31 +1,25 @@
 <% products.each do |category_name, products| %>
   <div class="category_name">
-    <a href="#" class="dropdown-toggle nav-item dropdown name" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= category_name %></a>
+    <a href="#" class="dropdown-toggle dropdown name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= category_name %></a>
 
   </div>
   <div class="cards_product">
     <% products.each do |product|%>
       <div class="card_product">
-        <div class="text-right px-2">
-          <a href="#" class="dropdown-toggle nav-item dropdown" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-edit icon"></i></a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a href="#productEditModal<%= product.id %>" data-toggle="modal" data-target="#productEditModal<%= product.id %>" class="dropdown-item dropdown-item-top" data-edit=" <%= @product = product %>">Edit</a>
-            <%= link_to "Destroy", product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item dropdown-item-bottom" %>
-          </div>
+        <a href="#" class="dropdown-toggle dropdown icon-edit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-edit icon"></i></a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a href="#productEditModal<%= product.id %>" data-toggle="modal" data-target="#productEditModal<%= product.id %>" class="dropdown-item dropdown-item-top" data-edit=" <%= @product = product %>">Edit</a>
+          <%= link_to "Destroy", product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item dropdown-item-bottom" %>
         </div>
-        <div class= "text-center">
-          <button type="button" class="show-product" data-toggle="modal" data-target="#productShowModal" data-category=" <%= product %> ">
-            <% if product.photo.attached?%>
-              <%= cl_image_tag product.photo.key, class: "image_product text-center" %>
-            <% else %>
-              <%= image_tag "default_image.jpg",class: "image_product text-center" %>
-            <% end %>
-          </button>
-       </div>
+        <div class="show-product" data-toggle="modal" data-target="#productShowModal" data-category=" <%= product %> ">
+          <% if product.photo.attached?%>
+            <%= cl_image_tag product.photo.key, class: "image_product text-center" %>
+          <% else %>
+            <%= image_tag "default_image.jpg",class: "image_product text-center" %>
+          <% end %>
+        </div>
         <div class="product_info">
-          <div class="name-container">
-            <span><%= product.name %></span>
-          </div>
+          <span class="name-container"><%= product.name %></span>
           <span><strong><%= product.price %> €</strong></span>
         </div>
       </div>

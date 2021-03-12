@@ -26,14 +26,19 @@ class OrdersController < ApplicationController
     @order.customer = Customer.find_by(phone_number: params[:customer])
     order_products = params[:products]
     if @order.save
-      order_products.each do |product, quantity|
-        order_product = OrderProduct.new(product_id: product.to_i, quantity: quantity)
-        order_product.order = @order
-        order_product.save
+      unless order_products == nil
+        order_products.each do |product, quantity|
+          order_product = OrderProduct.new(product_id: product.to_i, quantity: quantity)
+          order_product.order = @order
+          order_product.save
+        end
+        redirect_to order_path(@order), notice: "Order was successfully created"
+      else
+        @order.destroy
+        redirect_to new_order_path(query: params[:customer]), notice: "An order must have products"
       end
-      redirect_to order_path(@order), notice: "Order was successfully created"
     else
-      render :new
+      redirect_to new_order_path, notice: "An order must have a valid customer"
     end
   end
 
