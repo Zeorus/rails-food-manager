@@ -13,7 +13,7 @@
         <% if @product.photo.attached?%>
           <%= cl_image_tag @product.photo.key, class: "image_show" %>
         <% else %>
-          <%= image_tag "default_image.jpg",class: "image_show" %>
+          <%= image_tag "default_image.jpg", class: "image_show" %>
         <% end %>
         <div class="price-container">
           <span><strong>Product price : <%= @product.price %>€</strong></span>

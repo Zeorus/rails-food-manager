@@ -56,11 +56,14 @@
 .show-product{
   background-color: white;
   border: none;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
   .image_product {
     width: 170px;
     height: 130px;
-    border-radius: 10px;
     padding-bottom: 9px;
+    object-fit: cover;
   }
 }
 
