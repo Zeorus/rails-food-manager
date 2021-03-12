@@ -16,7 +16,12 @@
 }
 
 .form-control {
-  border-radius: 50PX !important;
+  border-radius: 50px;
+  padding-left: 16px;
+}
+
+.text {
+  border-radius: 0 !important;
 }
 
 #form-container {
