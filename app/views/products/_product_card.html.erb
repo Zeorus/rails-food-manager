@@ -18,13 +18,22 @@
             <%= image_tag "default_image.jpg", class: "image_product" %>
           <% end %>
         </div>
+        <div class= "text-center">
+          <button type="button" class="show-product" data-toggle="modal" data-target="#productShowModal<%= product.id %>" data-category=" <%= product %> ">
+            <% if product.photo.attached?%>
+              <%= cl_image_tag product.photo.key, class: "image_product text-center" %>
+            <% else %>
+              <%= image_tag "default_image.jpg",class: "image_product text-center" %>
+            <% end %>
+          </button>
+        </div>
         <div class="product_info">
           <span class="name-container"><%= product.name %></span>
           <span><strong><%= product.price %> €</strong></span>
         </div>
       </div>
       <%= render 'modalEdit' %>
-      <%= render 'show_modal' %>
+      <%= render 'show_modal', product: product %>
     <% end %>
   </div>
 <% end %>
