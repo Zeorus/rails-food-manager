@@ -1,6 +1,11 @@
 #dashboard {
+  margin: 16px auto;
   padding: 20px 30px 20px 30px ;
-  width: 100%;
+  width: 80%;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid $my_light;
+  
   #tab h1 {
     color: $my_primary;
     border-bottom: 3px solid $my_primary;
@@ -15,6 +20,7 @@
 
 #calendar {
   border: 1px solid $my_light;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -24,6 +30,7 @@
   p {
     margin: 0 0;
   }
+  
   i{
     color: $my_primary;
   }
@@ -31,18 +38,20 @@
 
 
 #cards_dashboard{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 43px;
-  padding: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 16px;
 }
 
 .card-info {
   position: relative;
   border: 1px solid $my_light;
+  border-radius: 10px;
   width: 256px;
   height: 115px;
   padding: 10px;
+
   .btn-card-info {
     position: absolute;
     bottom: 10px;
@@ -51,16 +60,19 @@
     border-radius: 10px;
     padding: 2px 10px 2px 10px;
   }
+
   p {
     margin-bottom: 4px;
     font-weight: bold;
   }
+
   h2 {
     font-weight: bold;
   }
 }
 
 .stat {
+  margin: 0 auto;
   height: 475px;
   width: 938px;
   padding: 30px;
@@ -69,8 +81,8 @@
 #graphic {
   border-left: solid;
   border-bottom: solid;
-  width: 805px;
-  height: 320px;
+  width: 100%;
+  height: 100%;
   position: relative;
 }
 
@@ -80,11 +92,12 @@
   border: 1px solid $my_light;
   top: 10px;
   left: 30px;
+
   h6 {
-    margin: 0px 0px 0px 0px;
+    margin: 0;
   }
   p {
-    margin: 0px 0px 0px 0px;
+    margin: 0;
   }
 }
 
@@ -97,7 +110,7 @@
   right: 30px;
   padding: 10px;
   p {
-    margin: 0px 0px 0px 0px;
+    margin: 0 4px 0 0;
   }
 }
 

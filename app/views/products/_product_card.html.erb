@@ -13,9 +13,9 @@
         </div>
         <div class="show-product" data-toggle="modal" data-target="#productShowModal" data-category=" <%= product %> ">
           <% if product.photo.attached?%>
-            <%= cl_image_tag product.photo.key, class: "image_product text-center" %>
+            <%= cl_image_tag product.photo.key, class: "image_product" %>
           <% else %>
-            <%= image_tag "default_image.jpg",class: "image_product text-center" %>
+            <%= image_tag "default_image.jpg", class: "image_product" %>
           <% end %>
         </div>
         <div class="product_info">
