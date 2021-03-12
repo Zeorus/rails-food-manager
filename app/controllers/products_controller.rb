@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only: [:show, :edit, :update, :destroy]
+  before_action :find_product, only: [:edit, :update, :destroy]
 
   def index
     # category modal
@@ -23,10 +23,6 @@ class ProductsController < ApplicationController
         @productHash["#{category_name}"] = [product]
       end
     end
-  end
-
-  def show
-    authorize @product
   end
 
   def create
