@@ -23,9 +23,6 @@ class ProductsController < ApplicationController
         @productHash["#{category_name}"] = [product]
       end
     end
-
-
-
   end
 
   def show
