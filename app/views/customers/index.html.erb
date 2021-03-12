@@ -18,7 +18,7 @@
     <div class="row row-header">
       <div class="col-2">Name</div>
       <div class="col-2">Phone Number</div>
-      <div class="col-2">Address</div>
+      <div class="col-3">Address</div>
       <div class="col-2">City</div>
       <div class="col-2">Action</div>
     </div>
@@ -27,7 +27,7 @@
         <div class="col-2"> <%= customer.last_name.capitalize%>
           <%= customer.first_name.capitalize%></div>
         <div class="col-2"><%= customer.phone_number%></div>
-        <div class="col-2"><%= customer.address %></div>
+        <div class="col-3"><%= customer.address %></div>
         <div class="col-2"><%= customer.city%></div>
         <div class="col-2">
           <i class="fas fa-user-edit dropdown-toggle nav-item dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
@@ -37,7 +37,7 @@
         </div>
         </div>
       </div>
-       <div class="modal fade" id="customerEdit<%= customer.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="customerEdit<%= customer.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
