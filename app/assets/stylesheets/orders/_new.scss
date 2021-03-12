@@ -178,13 +178,10 @@
   height: 200px;
   color: $my_dark_one;
   font-size: 20px;
-  // padding: 12px;
   border-radius: 10px;
 
   .order-img-container {
-    background-size: cover;
     background-position: center;
-    overflow: hidden;
     flex: 0 0 50%;
     height: 100%;
     padding: 12px;
