@@ -1,3 +1,106 @@
-<div class="container">
-  <h1>This is the dashboard</h1>
+<div class="container" id="dashboard">
+  <div id="date">
+    <div id="tab">
+      <h1>Today</h1>
+    </div>
+    <div id="calendar">
+       <p><%= Date.today.strftime('%b %d,  %Y') %></p>
+       <a href=""><i class="far fa-calendar-alt"></i></a>
+    </div>
+  </div>
+  <div class="row" id="cards_dashboard">
+    <div class="card-info">
+      <p>Target</p>
+      <div class="price_card"><h2>200€</h2></div>
+      <%= link_to "Details", "#", class: "btn-card-info" %>
+    </div>
+    <div class="card-info">
+      <p>Orders</p>
+      <div class="price_card">
+        <h2> <%= Order.all.count %> </h2>
+      </div>
+      <%= link_to "Details", orders_path, class: "btn-card-info" %>
+    </div>
+    <div class="card-info">
+      <p>Total Customers</p>
+      <div class="price_card">
+        <h2><%= Customer.all.count %></h2>
+      </div>
+      <%= link_to "Details", customers_path, class: "btn-card-info" %>
+    </div>
+  </div>
+  <div class="stat">
+    <div id="graphic">
+      <div id="info-today">
+        <h6>Today</h6>
+        <div class="d-flex justify-content-center">
+          <div id="dot-green"></div>
+          <p>12,734€</p>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div id="dot-blue"> </div>
+          <p>5,374€</p>
+        </div>
+      </div>
+
+      <div id="legend">
+        <p>2021</p>
+        <div id="dot-green"> </div>
+
+        <p>2022</p>
+        <div id="dot-blue"> </div>
+      </div>
+
+      <div id="green-candle1"></div>
+      <div id="blue-candle1"></div>
+
+      <div id="green-candle2"></div>
+      <div id="blue-candle2"></div>
+
+      <div id="green-candle3"></div>
+      <div id="blue-candle3"></div>
+
+      <div id="green-candle4"></div>
+      <div id="blue-candle4"></div>
+
+      <div id="green-candle5"></div>
+      <div id="blue-candle5"></div>
+
+      <div id="green-candle6"></div>
+      <div id="blue-candle6"></div>
+
+      <div id="green-candle7"></div>
+      <div id="blue-candle7"></div>
+
+      <div id="green-candle8"></div>
+      <div id="blue-candle8"></div>
+
+      <div id="green-candle9"></div>
+      <div id="blue-candle9"></div>
+
+      <div id="green-candle10"></div>
+      <div id="blue-candle10"></div>
+
+      <div id="green-candle11"></div>
+      <div id="blue-candle11"></div>
+
+      <div id="green-candle12"></div>
+      <div id="blue-candle12"></div>
+    </div>
+    <div class="row" id="month">
+      <span class="tabs-month">Jan</span>
+      <span class="tabs-month">Feb</span>
+      <span class="tabs-month">Mar</span>
+      <span class="tabs-month">Apr</span>
+      <span class="tabs-month">May</span>
+      <span class="tabs-month">Jun</span>
+      <span class="tabs-month">Jul</span>
+      <span class="tabs-month">Aug</span>
+      <span class="tabs-month">Sep</span>
+      <span class="tabs-month">Oct</span>
+      <span class="tabs-month">Nov</span>
+      <span class="tabs-month">Dec</span>
+    </div>
+  </div>
+
 </div>
