@@ -19,7 +19,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
     authorize @customer
     if @customer.save
-      redirect_to customers_path, notice: "Customer was successfully created"
+      redirect_to new_order_path(query: @customer.phone_number), notice: "Customer was successfully created"
     else
       render :new
     end
