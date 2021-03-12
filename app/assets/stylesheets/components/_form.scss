@@ -1,9 +1,7 @@
 #login {
   background: white;
   padding: 10px 20px;
-  margin-top: 50px;
-  border-radius: 3px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  margin-top: 16px;
   h2 {
     font-size: 25px;
     font-weight: bold;
@@ -21,4 +19,10 @@
   border-radius: 50PX !important;
 }
 
+#form-container {
+  background-color: white;
+  border: 1px solid $my_light;
+  border-radius: 10px;
+  padding: 16px;
+}
 

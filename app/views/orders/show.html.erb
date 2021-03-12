@@ -16,7 +16,7 @@
   <% end %>
 
   <div id="order-show-customer">
-    <h3><%= @order.customer.last_name %>, <%= @order.customer.first_name %></h3>
+    <h3><%= @order.customer.last_name %> <%= @order.customer.first_name %></h3>
     <p><i class="fas fa-phone"></i><%= @order.customer.phone_number %></p>
     <p><i class="fas fa-map-marked"></i><%= @order.customer.address %>, <%= @order.customer.zip_code %> <%= @order.customer.city %></p>
   </div>
