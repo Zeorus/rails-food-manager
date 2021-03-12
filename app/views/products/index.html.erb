@@ -5,10 +5,8 @@
   <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#categoryModal" data-category=" <%= @category = Category.new %> ">
     New Category
   </button>
-  <div class="text-right pt-2">
-    <%= render 'modal' %>
-    <%= render 'categories/modal' %>
-  </div>
+  <%= render 'modal' %>
+  <%= render 'categories/modal' %>
 </div>
 <%= render "searchbar" %>
 <%= render "product_card", products: @productHash %>
