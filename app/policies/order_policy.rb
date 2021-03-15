@@ -24,4 +24,8 @@ class OrderPolicy < ApplicationPolicy
   def update?
     @user.role == "admin"
   end
+
+  def geoloc?
+    @user.role == "admin"
+  end
 end

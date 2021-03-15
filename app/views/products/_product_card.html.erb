@@ -11,22 +11,13 @@
           <a href="#productEditModal<%= product.id %>" data-toggle="modal" data-target="#productEditModal<%= product.id %>" class="dropdown-item dropdown-item-top" data-edit=" <%= @product = product %>">Edit</a>
           <%= link_to "Destroy", product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item dropdown-item-bottom" %>
         </div>
-        <div class="show-product" data-toggle="modal" data-target="#productShowModal<%= product.id %>" data-category=" <%= product %> ">
-          <% if product.photo.attached?%>
-            <%= cl_image_tag product.photo.key, class: "image_product" %>
-          <% else %>
-            <%= image_tag "default_image.jpg", class: "image_product" %>
-          <% end %>
-        </div>
-        <div class= "text-center">
-          <button type="button" class="show-product" data-toggle="modal" data-target="#productShowModal<%= product.id %>" data-category=" <%= product %> ">
+          <div class="show-product" data-toggle="modal" data-target="#productShowModal<%= product.id %>" data-category=" <%= product %> ">
             <% if product.photo.attached?%>
               <%= cl_image_tag product.photo.key, class: "image_product text-center" %>
             <% else %>
               <%= image_tag "default_image.jpg",class: "image_product text-center" %>
             <% end %>
-          </button>
-        </div>
+          </div>
         <div class="product_info">
           <span class="name-container"><%= product.name %></span>
           <span><strong><%= product.price %> €</strong></span>

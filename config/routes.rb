@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'pages#dashboard'
 
+  get 'geolocation', to: 'orders#geoloc'
+
   resources :customers
 
   resources :orders, except: [:edit]

@@ -1,0 +1,23 @@
+#address-list-container {
+  background-color: white;
+  border: 1px solid $my_light;
+  border-radius: 10px;
+  padding: 16px;
+  // display: flex;
+  // justify-content: space-between;
+}
+
+#address-container {
+  flex: 0 0 40%
+}
+
+#map {
+  flex: 0 0 60%;
+}
+
+@media(min-width: 1200px) {
+  #address-list-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}

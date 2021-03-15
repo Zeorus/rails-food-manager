@@ -18,6 +18,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
     authorize @customer
+    @customer.full_address = "#{@customer.address}, #{@customer.zip_code} #{@customer.city}"
     if @customer.save
       redirect_to new_order_path(query: @customer.phone_number), notice: "Customer was successfully created"
     else
@@ -32,6 +33,7 @@ class CustomersController < ApplicationController
   def update
     authorize @customer
     if @customer.update(customer_params)
+      @customer.update(full_address: "#{@customer.address}, #{@customer.zip_code} #{@customer.city}")
       redirect_to customers_path, notice: "Customer was successfully updated"
     else
       render :edit, notice: "Error. Invalid information"

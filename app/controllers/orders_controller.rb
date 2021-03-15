@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-
   def index
     @orders = policy_scope(Order)
   end
@@ -54,6 +53,29 @@ class OrdersController < ApplicationController
     authorize @order
     @order.update(order_params)
     redirect_to order_path(@order), notice: "Delivery Status was successfully updated"
+  end
+
+  def geoloc
+    orders = Order.where(delivery_status: "ready")
+    authorize orders
+    my_lat = 50.70328140258789
+    my_lon = 3.201368808746338
+    distances = {}
+      orders.each do |order|
+        lat = order.customer.latitude
+        lon = order.customer.longitude
+        dist = Geocoder::Calculations.distance_between([lat,lon], [my_lat, my_lon]).round(2)
+        distances["#{dist}"] = order
+      end
+    @distances = distances.sort_by { |k, v| k.to_f }
+    
+    @customers = Customer.joins("INNER JOIN orders ON orders.customer_id = customers.id")
+    @markers = @customers.geocoded.map do |customer|
+      {
+        lat: customer.latitude,
+        lng: customer.longitude
+      }
+    end
   end
 
   private

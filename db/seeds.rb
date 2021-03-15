@@ -286,29 +286,29 @@ puts "#{Product.count} Products generated!"
 
 
 puts "Generate Customers"
-Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0654789645",
-                address: "57 quai Saint-Nicolas", city: "Tourcoing", zip_code: "59200")
+Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0102030405",
+                address: "57 quai Saint-Nicolas", city: "Tourcoing", zip_code: "59200", full_address: "57 quai Saint-Nicolas, 59200 Tourcoing")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0745421895",
-                address: "35 rue de l'Epeule", city: "Roubaix", zip_code: "59100")
+                address: "35 rue de l'Epeule", city: "Roubaix", zip_code: "59100", full_address: "35 rue de l'Epeule, 59100 Roubaix")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0641287964",
-                address: "4 Chemin Challet", city: "Lille", zip_code: "59000")
+                address: "4 Chemin Challet", city: "Lille", zip_code: "59000", full_address: "4 Chemin Challet, 59000 Lille")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0965847852",
-                address: "91 Rue du Général Sarrail", city: "Roubaix", zip_code: "59100")
+                address: "91 Rue du Général Sarrail", city: "Roubaix", zip_code: "59100", full_address: "91 Rue du Général Sarrail, 59100 Roubaix")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0745876312",
-                address: "122 rue Solférino", city: "Lille", zip_code: "59000")
+                address: "122 rue Solférino", city: "Lille", zip_code: "59000", full_address: "122 rue Solférino, 59000 Lille")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0648571236",
-                address: "15 rue du Faison", city: "Lille", zip_code: "59000")
+                address: "15 rue du Faison", city: "Lille", zip_code: "59000", full_address: "15 rue du Faison, 59000 Lille")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0625789645",
-                address: "1 place Notre Dame", city: "Tourcoing", zip_code: "59200")
+                address: "1 place Notre Dame", city: "Tourcoing", zip_code: "59200", full_address: "1 place Notre Dame, 59200 Tourcoing")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0315784952",
-                address: "101 boulevard Descat", city: "Tourcoing", zip_code: "59200")
+                address: "101 boulevard Descat", city: "Tourcoing", zip_code: "59200", full_address: "101 boulevard Descat, 59200 Tourcoing")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0625489675",
-                address: "228 rue Carnot", city: "Wattrelos", zip_code: "59150")
+                address: "228 rue Carnot", city: "Wattrelos", zip_code: "59150", full_address: "228 rue Carnot, 59150 Wattrelos")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0948657152",
-                address: "18 rue Jean Jaurès", city: "Wattrelos", zip_code: "59150")
+                address: "18 rue Jean Jaurès", city: "Wattrelos", zip_code: "59150", full_address: "18 rue Jean Jaurès, 59150 Wattrelos")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0745312589",
-                address: "12 rue du Maréchal Foch", city: "Roubaix", zip_code: "59100")
+                address: "12 rue du Maréchal Foch", city: "Roubaix", zip_code: "59100", full_address: "12 rue du Maréchal Foch, 59100 Roubaix")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0641251489",
-                address: "12 rue Alain Savary", city: "Wattrelos", zip_code: "59150")
+                address: "12 rue Alain Savary", city: "Wattrelos", zip_code: "59150", full_address: "12 rue Alain Savary, 59150 Wattrelos")
 
 puts "#{Customer.count} customers generated!"
