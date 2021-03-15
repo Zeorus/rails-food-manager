@@ -6,6 +6,7 @@
   Delivery Status: <a href="#" class="dropdown-toggle dropdown" id="deliveryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="order-status-<%= @order.delivery_status %>"><%= @order.delivery_status.capitalize %></span></a>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="deliveryDropdown">
     <div class="dropdown-item dropdown-item-top">Pending</div>
+    <div class="dropdown-item dropdown-item-center">Ready</div>
     <div class="dropdown-item dropdown-item-center">Delivering</div>
     <div class="dropdown-item dropdown-item-bottom">Delivered</div>
   </div>

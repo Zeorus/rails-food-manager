@@ -5,4 +5,8 @@ class Customer < ApplicationRecord
   validates :address, presence: true
   validates :zip_code, presence: true, format: { with: /\A(0[1-9]|[1-8]\d|9[0-5])\d{3}\z/, message: "Invalid zip code" }
   validates :city, presence: true
+
+  geocoded_by :full_address
+  after_validation :geocode, if: :will_save_change_to_address?
+
 end
