@@ -5,27 +5,15 @@ class CategoryPolicy < ApplicationPolicy
     end
   end
 
-  def show?
-    true
-  end
-
-  def new?
-    true
-  end
-
   def create?
-    true
-  end
-
-  def edit?
-    true
+    user.role == "admin"
   end
 
   def update?
-    edit?
+    user.role == "admin"
   end
 
   def destroy?
-    true
+    user.role == "admin"
   end
 end
