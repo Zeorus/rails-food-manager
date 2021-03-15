@@ -12,8 +12,9 @@ class ProductsController < ApplicationController
     @category = Category.new
 
     @category = policy_scope(Category)
-
-    @products = policy_scope(Product)
+    if params[:query].present?
+      @products = policy_scope(Product).global_search(params[:query])
+      @products = policy_scope(Product) if @products.empty?
       @productHash = {}
       @products.each do |product|
         category_name = product.category.name
@@ -23,11 +24,17 @@ class ProductsController < ApplicationController
           @productHash[category_name.to_s] = [product]
         end
       end
-
-    if params[:query].present?
-      @productHash = Product.global_search(params[:query])
     else
-      @productHash
+      @products = policy_scope(Product)
+      @productHash = {}
+      @products.each do |product|
+        category_name = product.category.name
+        if @productHash.key?(category_name)
+          @productHash[category_name.to_s].push(product)
+        else
+          @productHash[category_name.to_s] = [product]
+        end
+      end
     end
   end
 
