@@ -1,0 +1,17 @@
+<div id="address-list-container">
+  <div id="address-container">
+    <% @distances.each do |couple| %>
+      <p>Address: <%= couple[1].customer.full_address %>
+      <br>
+      Distance from me: <%= couple[0] %> km</p>
+    <% end %>
+  </div>
+
+  <div id="map"
+       style="width: 100%; height: 600px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
+<% console %>

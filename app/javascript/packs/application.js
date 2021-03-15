@@ -24,6 +24,7 @@ import "controllers";
 // Internal imports
 import { displayProducts } from '../plugins/select_products';
 import { changeStatus } from '../plugins/change_status';
+import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   
@@ -39,5 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementById('order-show-container')) {
     changeStatus()
   }
+
+  initMapbox();
 
 });
