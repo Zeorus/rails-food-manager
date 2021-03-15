@@ -14,15 +14,22 @@ class ProductsController < ApplicationController
     @category = policy_scope(Category)
 
     @products = policy_scope(Product)
-    @productHash = {}
-    @products.each do |product|
-      category_name = product.category.name
-      if @productHash.key?(category_name)
-        @productHash["#{category_name}"].push(product)
-      else
-        @productHash["#{category_name}"] = [product]
+      @productHash = {}
+      @products.each do |product|
+        category_name = product.category.name
+        if @productHash.key?(category_name)
+          @productHash["#{category_name}"].push(product)
+        else
+          @productHash["#{category_name}"] = [product]
+        end
       end
+
+    if params[:query].present?
+      @productHash = Product.global_search(params[:query])
+    else
+      @productHash
     end
+
   end
 
   def create
