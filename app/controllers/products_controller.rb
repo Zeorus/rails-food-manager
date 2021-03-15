@@ -18,9 +18,9 @@ class ProductsController < ApplicationController
       @products.each do |product|
         category_name = product.category.name
         if @productHash.key?(category_name)
-          @productHash["#{category_name}"].push(product)
+          @productHash[category_name.to_s].push(product)
         else
-          @productHash["#{category_name}"] = [product]
+          @productHash[category_name.to_s] = [product]
         end
       end
 
@@ -29,7 +29,6 @@ class ProductsController < ApplicationController
     else
       @productHash
     end
-
   end
 
   def create
