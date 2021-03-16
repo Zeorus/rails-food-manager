@@ -1,0 +1,10 @@
+<%= render "user_admin" %>
+<%= render "user_manager" %>
+<%= render "user_rider" %>
+
+<%= render 'modalEdit' %>
+
+<button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#userModal" data-user=" <%= @user = User.new %> ">
+  New Member
+</button>
+<%= render 'modal' %>

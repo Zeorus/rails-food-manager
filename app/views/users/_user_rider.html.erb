@@ -1,0 +1,14 @@
+<h2>Riders</h2>
+<% @riders.each do |rider| %>
+  <a href="#" class="dropdown-toggle dropdown icon-edit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-edit icon"></i></a>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+    <a href="#userEditModal<%= rider.id %>" data-toggle="modal" data-target="#userEditModal<%= rider.id %>" class="dropdown-item dropdown-item-top" data-edit=" <%= @user = rider %>">Edit</a>
+    <%= link_to "Destroy", users_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item dropdown-item-bottom" %>
+  </div>
+  <div class="user">
+    <%= rider.first_name %>
+    <%= rider.last_name %>
+    <%= rider.email %>
+    <%= rider.phone_number %>
+  </div>
+<% end %>
