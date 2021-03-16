@@ -1,13 +1,17 @@
 <div id="order-show-container">
-  <div class="d-flex"><h2>Order #<%= @order.id %></h2><span class="flex-grow-1"></span><span><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_path(@order), method: :delete, data: { confirm: 'Are you sure?' } %></span></div>
+  <% if current_user.admin? || current_user.role == "manager" %>
+    <div class="d-flex"><h2>Order #<%= @order.id %></h2><span class="flex-grow-1"></span><span><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_path(@order), method: :delete, data: { confirm: 'Are you sure?' } %></span></div>
+  <% end %>
   <p>Create: <%= @order.created_at.strftime("%A, %d-%m-%Y at %H:%M") %></p>
   <p>Payment Method: <%= @order.payment_method %></p>
   <p>Recovery mode: <%= @order.recovery_mode %></p>
   Delivery Status: <a href="#" class="dropdown-toggle dropdown" id="deliveryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="order-status-<%= @order.delivery_status %>"><%= @order.delivery_status.capitalize %></span></a>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="deliveryDropdown">
-    <div class="dropdown-item dropdown-item-top">Pending</div>
-    <div class="dropdown-item dropdown-item-center">Ready</div>
-    <div class="dropdown-item dropdown-item-center">Delivering</div>
+    <% if current_user.admin? || current_user.role == "manager" %>
+      <div class="dropdown-item dropdown-item-top">Pending</div>
+      <div class="dropdown-item dropdown-item-center">Ready</div>
+      <div class="dropdown-item dropdown-item-center">Delivering</div>
+    <% end %>
     <div class="dropdown-item dropdown-item-bottom">Delivered</div>
   </div>
 
