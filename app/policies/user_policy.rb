@@ -1,16 +1,20 @@
-class CustomerPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
+  def show?
+    user.admin?
+  end
+
   def create?
-    user.role == "manager" || user.admin?
+    user.admin?
   end
 
   def update?
-    user.role == "manager" || user.admin?
+    user.admin?
   end
 
   def destroy?

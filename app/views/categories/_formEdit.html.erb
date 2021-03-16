@@ -1,0 +1,9 @@
+<div id="form-container" class="container">
+  <%= simple_form_for(@category) do |f| %>
+    <div id="info">
+      <%= f.input :name %>
+      <%= f.input :icon %>
+      <%= f.submit class: "btn-large" %>
+    </div>
+  <% end %>
+</div>
