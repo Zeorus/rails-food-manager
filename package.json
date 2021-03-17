@@ -7,6 +7,8 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
     "bootstrap": "^4.6.0",
+    "chart.js": "^2.9.4",
+    "flatpickr": "^4.6.9",
     "jquery": "^3.6.0",
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^2.1.1",
