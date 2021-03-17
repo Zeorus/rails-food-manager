@@ -3,7 +3,7 @@ const chart =() => {
   const previousWeek = document.querySelector('.previous_week').dataset;
   const actualWeek = document.querySelector('.actual_week').dataset;
   const target = document.querySelector('#target');
-  console.log(previousWeek)
+  // console.log(previousWeek)
 
   // get the current number week
   // Date.prototype.getWeekNumber = function(){
