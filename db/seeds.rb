@@ -1,7 +1,11 @@
 require 'faker'
 
+puts "Clean DB Delivery_routes"
+DeliveryRoute.destroy_all
+
 puts "Clean DB Orders"
 Order.destroy_all
+
 
 # puts "Clean DB customers"
 # Customer.destroy_all
