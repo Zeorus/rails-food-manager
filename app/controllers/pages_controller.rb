@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   # skip_before_action :authenticate_user!, only: [ :home ]
-  require 'Date'
+  # require 'Date'
 
   def home
     redirect_to dashboard_path

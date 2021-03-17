@@ -45,7 +45,10 @@ document.addEventListener('turbolinks:load', () => {
   }
 
   initMapbox();
-  chart();
+  
+  if (document.getElementById('dashboard')) {
+    chart();
+  }
 
   if (document.getElementById("address-list-container")) {
     initSortable();
