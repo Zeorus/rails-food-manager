@@ -1,0 +1,47 @@
+#delivery-route-container {
+  display: flex;
+  background-color: white;
+  border: 1px solid $my_light;
+  border-radius: 10px;
+  padding: 16px;
+  color: $my_dark_one
+}
+
+#route-infos-container {
+  flex: 0 0 50%;
+  padding-right: 16px;
+
+  p {
+    margin-bottom: 8px;
+  }
+}
+
+#delivery-map {
+  flex: 0 0 50%;
+}
+
+.route-order-infos {
+  display: flex;
+  border: 1px solid $my_light;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.route-order-content {
+  flex: 0 0 60%
+}
+
+.route-order-products {
+  flex: 0 0 40%
+}
+
+.truck {
+  margin: -10px -10px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #3887be;
+  pointer-events: none;
+}

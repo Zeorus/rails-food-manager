@@ -75,13 +75,13 @@ class OrdersController < ApplicationController
       {
         lat: customer.latitude,
         lng: customer.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { customer: customer }),
+        infoWindow: render_to_string(partial: "shared/info_window", locals: { customer: customer }),
         id: customer.id
       }
     end
     @markers << { lat: 50.70328140258789, 
                   lng: 3.201368808746338, 
-                  infoWindow: render_to_string(partial: "info_window", locals: { customer: nil }),
+                  infoWindow: render_to_string(partial: "shared/info_window", locals: { customer: nil }),
                   id: 0
                 }
   end
