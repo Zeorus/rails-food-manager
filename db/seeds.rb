@@ -287,23 +287,23 @@ puts "#{Product.count} Products generated!"
 
 puts "Generate Customers"
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0102030405",
-                address: "57 quai Saint-Nicolas", city: "Tourcoing", zip_code: "59200", full_address: "57 quai Saint-Nicolas, 59200 Tourcoing")
+                address: "39 rue Saint-Blaise", city: "Tourcoing", zip_code: "59200", full_address: "39 rue Saint-Blaise, 59200 Tourcoing")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0745421895",
                 address: "35 rue de l'Epeule", city: "Roubaix", zip_code: "59100", full_address: "35 rue de l'Epeule, 59100 Roubaix")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0641287964",
-                address: "4 Chemin Challet", city: "Lille", zip_code: "59000", full_address: "4 Chemin Challet, 59000 Lille")
+                address: "23 rue Esquermoise", city: "Lille", zip_code: "59800", full_address: "23 rue Esquermoise, 59800 Lille")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0965847852",
                 address: "91 Rue du Général Sarrail", city: "Roubaix", zip_code: "59100", full_address: "91 Rue du Général Sarrail, 59100 Roubaix")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0745876312",
-                address: "122 rue Solférino", city: "Lille", zip_code: "59000", full_address: "122 rue Solférino, 59000 Lille")
+                address: "122 rue Solférino", city: "Lille", zip_code: "59800", full_address: "122 rue Solférino, 59800 Lille")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0648571236",
-                address: "15 rue du Faison", city: "Lille", zip_code: "59000", full_address: "15 rue du Faison, 59000 Lille")
+                address: "15 rue du Faisan", city: "Lille", zip_code: "59800", full_address: "15 rue du Faisan, 59800 Lille")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0625789645",
                 address: "1 place Notre Dame", city: "Tourcoing", zip_code: "59200", full_address: "1 place Notre Dame, 59200 Tourcoing")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0315784952",
                 address: "101 boulevard Descat", city: "Tourcoing", zip_code: "59200", full_address: "101 boulevard Descat, 59200 Tourcoing")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0625489675",
-                address: "228 rue Carnot", city: "Wattrelos", zip_code: "59150", full_address: "228 rue Carnot, 59150 Wattrelos")
+                address: "52 rue Faidherbe", city: "Mouvaux", zip_code: "59420", full_address: "52 rue Faidherbe, 59420 Mouvaux")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0948657152",
                 address: "18 rue Jean Jaurès", city: "Wattrelos", zip_code: "59150", full_address: "18 rue Jean Jaurès, 59150 Wattrelos")
 Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0745312589",
