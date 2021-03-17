@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     authorize @order
     @order.customer = Customer.find_by(phone_number: params[:customer])
     order_products = params[:products]
-    if @order.save
+    if @order.save!
       unless order_products == nil
         order_products.each do |product, quantity|
           order_product = OrderProduct.new(product_id: product.to_i, quantity: quantity)
@@ -56,26 +56,11 @@ class OrdersController < ApplicationController
   end
 
   def geoloc
-    orders = Order.where(delivery_status: "ready")
-    authorize orders
-    my_lat = 50.70328140258789
-    my_lon = 3.201368808746338
-    distances = {}
-      orders.each do |order|
-        lat = order.customer.latitude
-        lon = order.customer.longitude
-        dist = Geocoder::Calculations.distance_between([lat,lon], [my_lat, my_lon]).round(2)
-        distances["#{dist}"] = order
-      end
-    @distances = distances.sort_by { |k, v| k.to_f }
-    
-    @customers = Customer.joins("INNER JOIN orders ON orders.customer_id = customers.id")
-    @markers = @customers.geocoded.map do |customer|
-      {
-        lat: customer.latitude,
-        lng: customer.longitude
-      }
-    end
+    @orders = Order.where(delivery_status: "ready")
+    authorize @orders
+    @markers = markers()
+    @riders = User.where(role: "rider")
+    @groups = OrderGroupingService.new(@orders).regroup
   end
 
   private
@@ -83,4 +68,22 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:payment_method, :recovery_mode, :total_price, :delivery_status)
   end
+
+  def markers
+    @customers = Customer.joins(:orders).where(orders: { delivery_status: "ready" })
+    @markers = @customers.geocoded.map do |customer|
+      {
+        lat: customer.latitude,
+        lng: customer.longitude,
+        infoWindow: render_to_string(partial: "shared/info_window", locals: { customer: customer }),
+        id: customer.id
+      }
+    end
+    @markers << { lat: 50.70328140258789, 
+                  lng: 3.201368808746338, 
+                  infoWindow: render_to_string(partial: "shared/info_window", locals: { customer: nil }),
+                  id: 0
+                }
+  end
+
 end

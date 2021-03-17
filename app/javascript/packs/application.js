@@ -25,11 +25,15 @@ import "controllers";
 import { displayProducts } from '../plugins/select_products';
 import { changeStatus } from '../plugins/change_status';
 import { initMapbox } from '../plugins/init_mapbox';
+import { chart } from '../plugins/chart';
+import { initSortable } from '../plugins/init_sortable';
+import { attributeRider } from '../plugins/rider_attribution';
+import { initMapDelivery } from '../plugins/init_mapdelivery';
 
 document.addEventListener('turbolinks:load', () => {
-  
+
   $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
+    $('[data-toggle="tooltip"]').tooltip();
   });
 
   if (document.getElementById('new-order-container')) {
@@ -42,5 +46,15 @@ document.addEventListener('turbolinks:load', () => {
   }
 
   initMapbox();
+  initMapDelivery();
+  
+  if (document.getElementById('dashboard')) {
+    chart();
+  }
+
+  if (document.getElementById("address-list-container")) {
+    initSortable();
+    attributeRider();
+  }
 
 });

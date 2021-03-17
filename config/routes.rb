@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   resources :products
 
   resources :categories
-
+  
   resources :users
+  
+  resources :delivery_routes, only: [:show, :create]
+
+  
 end
