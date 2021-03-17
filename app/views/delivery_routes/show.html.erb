@@ -1,0 +1,33 @@
+<div id="delivery-route-container">
+  <div id="route-infos-container">
+    <h2>Delivery Route #<%= @delivery_route.id %></h2>
+    <p><strong>Create:</strong> <%= @delivery_route.created_at.strftime("%A, %d-%m-%Y at %H:%M") %></p>
+    <p><strong>Number of orders:</strong> <%= @delivery_route.orders.count %></p>
+    <p><strong>Delivery Man:</strong> <%= @delivery_route.user.first_name %> <%= @delivery_route.user.last_name %></p>
+    <h3>Orders</h3>
+    <% @delivery_route.orders.sort_by(&:step).each do |order| %>
+      <div class="route-order-infos" data-coord="<%= order.customer.longitude %>,<%= order.customer.latitude %>">
+        <div class="route-order-content">
+          <h6><strong><%= order.step %>. Order #<%= order.id %></strong></h6>
+          <p><strong>Customer:</strong> <%= order.customer.phone_number %></p>
+          <p><strong>Address:</strong> <%= order.customer.full_address %></p>
+          <p><strong>Total price:</strong> <%= order.total_price %> € / <%= order.payment_method %></p>
+        </div>
+        <div class="route-order-products">
+          <h6><strong>Products</strong></h6>
+          <% order.order_products.each do |order_product| %>
+            <p>- <%= order_product.product.name %></p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="delivery-map"
+      style="width: 100%; height: 700px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
+<% console %>

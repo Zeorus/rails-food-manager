@@ -28,6 +28,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { chart } from '../plugins/chart';
 import { initSortable } from '../plugins/init_sortable';
 import { attributeRider } from '../plugins/rider_attribution';
+import { initMapDelivery } from '../plugins/init_mapdelivery';
 
 document.addEventListener('turbolinks:load', () => {
 
@@ -45,6 +46,7 @@ document.addEventListener('turbolinks:load', () => {
   }
 
   initMapbox();
+  initMapDelivery();
   
   if (document.getElementById('dashboard')) {
     chart();
