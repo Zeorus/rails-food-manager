@@ -5,27 +5,23 @@ class OrderPolicy < ApplicationPolicy
     end
   end
 
-  def new?
-    @user.role == "admin"
-  end
-
   def show?
-    @user.role == "admin"
+    true
   end
 
   def create?
-    @user.role == "admin"
-  end
-
-  def destroy?
-    @user.role == "admin"
+    user.role == "manager" || user.admin?
   end
 
   def update?
-    @user.role == "admin"
+    true
+  end
+
+  def destroy?
+    user.role == "manager" || user.admin?
   end
 
   def geoloc?
-    @user.role == "admin"
+    user.role == "manager" || user.admin?
   end
 end

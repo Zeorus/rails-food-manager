@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  resources :delivery_routes, only: [:create]
+
 end
