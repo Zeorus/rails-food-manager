@@ -1,9 +1,24 @@
 <div id="address-list-container">
   <div id="address-container">
-    <% @distances.each do |couple| %>
-      <p>Address: <%= couple[1].customer.full_address %>
-      <br>
-      Distance from me: <%= couple[0] %> km</p>
+    <% @groups.each_with_index do |group, index| %>
+      <div class="order-group" id="order-group-<%= index + 1 %>" data-groupid="<%= index + 1 %>" data-ordersid="">
+        <div class="d-flex"><h5>Delivery Group - <%= index + 1 %></h5> <div id="group-color-<%= index + 1 %>"></div></div>
+        <div class="order-list">
+          <% group.each do |order| %>
+            <div class="list-order-item" data-customerid="<%= order.customer_id %>"data-groupid="<%= index + 1 %>" data-orderid="<%= order.id %>">Address: <%= order.customer.full_address %></div>
+          <% end %>
+        </div>
+        <div class="footer-address-container">
+          <span>Rider : 
+            <select class="select2">
+              <% @riders.each do |rider| %>
+                <option value="<%= rider.first_name %>"><%= rider.first_name %></option>
+              <% end %>
+            </select>
+          </span>
+          <div class="btn-large text-center" id="btn-grp-<%= index + 1 %>">Attribute</div>
+        </div>
+      </div>
     <% end %>
   </div>
 
@@ -13,5 +28,3 @@
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-
-<% console %>

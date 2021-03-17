@@ -17,11 +17,31 @@ const initMapbox = () => {
     });
 
     const markers = JSON.parse(mapElement.dataset.markers);
+    const orderItems = document.querySelectorAll('.list-order-item');
+
     markers.forEach((marker) => {
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
+      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      const markerNew = new mapboxgl.Marker()
+        .setLngLat([marker.lng, marker.lat])
+        .setPopup(popup)
         .addTo(map);
-    });
+      orderItems.forEach((order) => {
+        if (marker["id"] == "0") {
+          markerNew.getElement().firstChild.firstChild.firstChild.nextSibling.style.fill="#bc9545";
+        }
+        if (marker["id"] == parseInt(order.dataset.customerid, 10)) {
+          markerNew.getElement().firstChild.firstChild.firstChild.nextSibling.setAttribute("id", `marker-${order.dataset.customerid}`);
+          if (order.dataset.groupid == "1") {
+            markerNew.getElement().firstChild.firstChild.firstChild.nextSibling.style.fill="blue";
+          } else if (order.dataset.groupid == "2") {
+            markerNew.getElement().firstChild.firstChild.firstChild.nextSibling.style.fill="red";
+          } else if (order.dataset.groupid == "3") {
+            markerNew.getElement().firstChild.firstChild.firstChild.nextSibling.style.fill="green";
+          } else
+          markerNew.getElement().firstChild.firstChild.firstChild.nextSibling.style.fill="yellow";
+          }
+        });
+      });
 
     fitMapToMarkers(map, markers);
   }
