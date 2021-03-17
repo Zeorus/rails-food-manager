@@ -1,0 +1,9 @@
+<div class="role-changes">
+  <%= simple_form_for(user) do |f| %>
+    <%= f.input :role, collection: ["manager", "rider"] %>
+    <%= f.input :admin, collection: [true, false] %>
+    <div class="form-user-button">
+      <%= f.submit class: "btn-large", value:"Change Status" %>
+    </div>
+  <% end %>
+</div>

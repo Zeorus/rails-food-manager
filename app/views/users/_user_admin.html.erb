@@ -1,0 +1,41 @@
+<div class="category">
+<h2 class="text-center">Admins</h2>
+  <% @admins.each do |admin| %>
+    <div class="show-user" data-toggle="modal" data-target="#userShowModal<%= admin.id %>" data-category=" <%= admin %> ">
+      <% if admin.avatar.attached? %>
+        <%= cl_image_tag admin.avatar.key, class: "avatar-staff", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else %>
+        <%= image_tag "admin.jpeg",class: "avatar-staff" %>
+      <% end %>
+      <div class="name">
+        <%= admin.first_name %>
+        <%= admin.last_name %>
+      </div>
+    </div>
+    <div class="modal fade" id="userShowModal<%= admin.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>Staff member</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h2 class="text-center"><%= admin.first_name %> <%= admin.last_name %></h2>
+            <h4 class="text-center role-member">admin</h4>
+            <% if admin.avatar.attached? %>
+              <%= cl_image_tag admin.avatar.key, class: "avatar-staff-show"%>
+            <% else %>
+              <%= image_tag "admin.jpeg",class: "avatar-staff-show" %>
+            <% end %>
+            <h5 class="text-center" >contact :</h5 >
+            <div class="staff-info">
+              <span class="info-member"><%= admin.email%> / <%= admin.phone_number%></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

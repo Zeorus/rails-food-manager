@@ -1,11 +1,11 @@
 <div id="form-container" class="container">
   <%= simple_form_for(@product) do |f| %>
     <div id="info">
-      <%= f.input :name, placeholder: "sushi" %>
+      <%= f.input :name %>
       <%= f.input :category_id, collection: @categories %>
       <%= f.input :description, as: :text %>
-      <%= f.input :price, placeholder: "5€" %>
-      <%= f.input :price_in_menu, placeholder: "7€" %>
+      <%= f.input :price %>
+      <%= f.input :price_in_menu %>
       <%= f.input :photo, as: :file %>
       <%= f.submit class: "btn-large" %>
     </div>

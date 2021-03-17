@@ -1,0 +1,68 @@
+.roles {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 120px;
+}
+
+.show-user {
+  width: 200px;
+  height: 180px;
+  margin: 24px auto;
+  background-color: white;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid $my_light;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+}
+
+.avatar-staff {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin: 15px auto;
+  object-fit: cover;
+}
+
+.avatar-staff-show {
+  width: 250px;
+  height: 200px;
+  margin: 15px 105px;
+  object-fit: cover;
+}
+
+.name {
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+.info-member {
+  font-size: 16px;
+}
+
+.role-member {
+  color: $my_primary;
+}
+
+.staff-info {
+  display: flex;
+  justify-content: center;
+}
+
+.role-changes {
+  border: solid 2px $my_secondary;
+  border-radius: 10px;
+  margin: 24px;
+  padding: 24px;
+}
+
+.form-user-button {
+  display: flex;
+  justify-content: center;
+}
+
