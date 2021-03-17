@@ -1,13 +1,13 @@
 require 'faker'
 
-puts "Clean DB Delivery_routes"
-DeliveryRoute.destroy_all
-
 puts "Clean DB Orders"
 Order.destroy_all
 
-puts "Clean DB customers"
-Customer.destroy_all
+puts "Clean DB Delivery_routes"
+DeliveryRoute.destroy_all
+
+# puts "Clean DB customers"
+# Customer.destroy_all
 
 # puts "Clean DB Products"
 # Product.destroy_all
@@ -288,33 +288,33 @@ Customer.destroy_all
 
 
 
-puts "Generate Customers"
-Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0102030405",
-                address: "39 rue Saint-Blaise", city: "Tourcoing", zip_code: "59200", full_address: "39 rue Saint-Blaise, 59200 Tourcoing")
-Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0745421895",
-                address: "35 rue de l'Epeule", city: "Roubaix", zip_code: "59100", full_address: "35 rue de l'Epeule, 59100 Roubaix")
-Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0641287964",
-                address: "23 rue Esquermoise", city: "Lille", zip_code: "59800", full_address: "23 rue Esquermoise, 59800 Lille")
-Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0965847852",
-                address: "91 Rue du Général Sarrail", city: "Roubaix", zip_code: "59100", full_address: "91 Rue du Général Sarrail, 59100 Roubaix")
-Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0745876312",
-                address: "122 rue Solférino", city: "Lille", zip_code: "59800", full_address: "122 rue Solférino, 59800 Lille")
-Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0648571236",
-                address: "15 rue du Faisan", city: "Lille", zip_code: "59800", full_address: "15 rue du Faisan, 59800 Lille")
-Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0625789645",
-                address: "1 place Notre Dame", city: "Tourcoing", zip_code: "59200", full_address: "1 place Notre Dame, 59200 Tourcoing")
-Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0315784952",
-                address: "101 boulevard Descat", city: "Tourcoing", zip_code: "59200", full_address: "101 boulevard Descat, 59200 Tourcoing")
-Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0625489675",
-                address: "52 rue Faidherbe", city: "Mouvaux", zip_code: "59420", full_address: "52 rue Faidherbe, 59420 Mouvaux")
-Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0948657152",
-                address: "18 rue Jean Jaurès", city: "Wattrelos", zip_code: "59150", full_address: "18 rue Jean Jaurès, 59150 Wattrelos")
-Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0745312589",
-                address: "12 rue du Maréchal Foch", city: "Roubaix", zip_code: "59100", full_address: "12 rue du Maréchal Foch, 59100 Roubaix")
-Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0641251489",
-                address: "12 rue Alain Savary", city: "Wattrelos", zip_code: "59150", full_address: "12 rue Alain Savary, 59150 Wattrelos")
+# puts "Generate Customers"
+# Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0102030405",
+#                 address: "39 rue Saint-Blaise", city: "Tourcoing", zip_code: "59200", full_address: "39 rue Saint-Blaise, 59200 Tourcoing")
+# Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0745421895",
+#                 address: "35 rue de l'Epeule", city: "Roubaix", zip_code: "59100", full_address: "35 rue de l'Epeule, 59100 Roubaix")
+# Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0641287964",
+#                 address: "23 rue Esquermoise", city: "Lille", zip_code: "59800", full_address: "23 rue Esquermoise, 59800 Lille")
+# Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0965847852",
+#                 address: "91 Rue du Général Sarrail", city: "Roubaix", zip_code: "59100", full_address: "91 Rue du Général Sarrail, 59100 Roubaix")
+# Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0745876312",
+#                 address: "122 rue Solférino", city: "Lille", zip_code: "59800", full_address: "122 rue Solférino, 59800 Lille")
+# Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0648571236",
+#                 address: "15 rue du Faisan", city: "Lille", zip_code: "59800", full_address: "15 rue du Faisan, 59800 Lille")
+# Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0625789645",
+#                 address: "1 place Notre Dame", city: "Tourcoing", zip_code: "59200", full_address: "1 place Notre Dame, 59200 Tourcoing")
+# Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0315784952",
+#                 address: "101 boulevard Descat", city: "Tourcoing", zip_code: "59200", full_address: "101 boulevard Descat, 59200 Tourcoing")
+# Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0625489675",
+#                 address: "52 rue Faidherbe", city: "Mouvaux", zip_code: "59420", full_address: "52 rue Faidherbe, 59420 Mouvaux")
+# Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0948657152",
+#                 address: "18 rue Jean Jaurès", city: "Wattrelos", zip_code: "59150", full_address: "18 rue Jean Jaurès, 59150 Wattrelos")
+# Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0745312589",
+#                 address: "12 rue du Maréchal Foch", city: "Roubaix", zip_code: "59100", full_address: "12 rue du Maréchal Foch, 59100 Roubaix")
+# Customer.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: "0641251489",
+#                 address: "12 rue Alain Savary", city: "Wattrelos", zip_code: "59150", full_address: "12 rue Alain Savary, 59150 Wattrelos")
 
-puts "#{Customer.count} customers generated!"
+# puts "#{Customer.count} customers generated!"
 
 # ----previous week ------
 order_mon = []
@@ -325,9 +325,11 @@ order_fri = []
 order_sat = []
 order_sun = []
 
+customers_id = Customer.all.map { |customer| customer.id }
+
 15.times do
   order_mon << {
-                  customer_id: (1..12).to_a.sample,
+                  customer_id: customers_id.sample,
                   delivery_status: "delivered",
                   total_price: (20 .. 50).to_a.sample,
                   created_at: "Mon, 8 Mar 2021 09:41:54.240411000 UTC +00:00",
@@ -337,7 +339,7 @@ end
 
 15.times do
   order_tue << {
-                  customer_id: (1..12).to_a.sample,
+                  customer_id: customers_id.sample,
                   delivery_status: "delivered",
                   total_price: (20 .. 50).to_a.sample,
                   created_at: "Tue, 9 Mar 2021 09:41:54.240411000 UTC +00:00",
@@ -349,7 +351,7 @@ end
 
 15.times do
   order_wed << {
-                  customer_id: (1..12).to_a.sample,
+                  customer_id: customers_id.sample,
                   delivery_status: "delivered",
                   total_price: (20 .. 50).to_a.sample,
                   created_at: "Wed, 10 Mar 2021 09:41:54.240411000 UTC +00:00",
@@ -359,7 +361,7 @@ end
 
 15.times do
   order_thu << {
-                  customer_id: (1..12).to_a.sample,
+                  customer_id: customers_id.sample,
                   delivery_status: "delivered",
                   total_price: (20 .. 50).to_a.sample,
                   created_at: "Thu, 11 Mar 2021 09:41:54.240411000 UTC +00:00",
@@ -369,7 +371,7 @@ end
 
 15.times do
   order_sun << {
-                  customer_id: (1..12).to_a.sample,
+                  customer_id: customers_id.sample,
                   delivery_status: "delivered",
                   total_price: (20 .. 50).to_a.sample,
                   created_at: "Sun, 14 Mar 2021 09:41:54.240411000 UTC +00:00",
@@ -379,7 +381,7 @@ end
 
 25.times do
   order_fri << {
-                  customer_id: (1..12).to_a.sample,
+                  customer_id: customers_id.sample,
                   delivery_status: "delivered",
                   total_price: (20 .. 50).to_a.sample,
                   created_at: "Fri, 12 Mar 2021 09:41:54.240411000 UTC +00:00",
@@ -389,7 +391,7 @@ end
 
 25.times do
   order_sat << {
-                  customer_id: (1..12).to_a.sample,
+                  customer_id: customers_id.sample,
                   delivery_status: "delivered",
                   total_price: (20 .. 50).to_a.sample,
                   created_at: "Sat, 13 Mar 2021 09:41:54.240411000 UTC +00:00",
@@ -447,7 +449,7 @@ tue = []
 
 15.times do
   mon << {
-                  customer_id: (1..12).to_a.sample,
+                  customer_id: customers_id.sample,
                   delivery_status: "delivered",
                   total_price: (20 .. 50).to_a.sample,
                   created_at: "Mon, 15 Mar 2021 09:41:54.240411000 UTC +00:00",
@@ -457,7 +459,7 @@ end
 
 15.times do
   tue << {
-                  customer_id: (1..12).to_a.sample,
+                  customer_id: customers_id.sample,
                   delivery_status: "delivered",
                   total_price: (20 .. 50).to_a.sample,
                   created_at: "Tue, 16 Mar 2021 09:41:54.240411000 UTC +00:00",
@@ -468,7 +470,7 @@ end
 
 # 15.times do
 #   wed << {
-#                   customer_id: (1..12).to_a.sample,
+#                   customer_id: customers_id.sample,
 #                   delivery_status: "delivered",
 #                   total_price: (20 .. 50).to_a.sample,
 #                   created_at: "Wed, 17 Mar 2021 09:41:54.240411000 UTC +00:00",
