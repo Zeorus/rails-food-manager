@@ -11,9 +11,8 @@
     background-color: $my_light !important;
   }
 
-  .btn-large {
-    margin-right: 16px;
-    border-style: hidden;
+  .dropdown-toggle {
+    margin-left: 8px;
   }
 }
 
@@ -24,7 +23,7 @@
   margin-left: 16px;
   padding: 0 8px;
   border: 1px solid $my_light;
-  border-radius: 10px;
+  // border-radius: 10px;
 
   &:hover {
     background-color: $my_light;

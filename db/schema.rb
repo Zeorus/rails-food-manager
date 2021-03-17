@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_083548) do
+ActiveRecord::Schema.define(version: 2021_03_17_104125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,13 @@ ActiveRecord::Schema.define(version: 2021_03_16_083548) do
     t.string "full_address"
   end
 
+  create_table "delivery_routes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_delivery_routes_on_user_id"
+  end
+
   create_table "order_products", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "order_id", null: false
@@ -80,12 +87,14 @@ ActiveRecord::Schema.define(version: 2021_03_16_083548) do
     t.bigint "customer_id", null: false
     t.string "payment_method", default: "CB"
     t.string "delivery_status", default: "pending"
-    t.string "rider_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "recovery_mode", default: "Livraison"
     t.float "total_price", default: 0.0
+    t.integer "step"
+    t.bigint "delivery_route_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
+    t.index ["delivery_route_id"], name: "index_orders_on_delivery_route_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -118,8 +127,10 @@ ActiveRecord::Schema.define(version: 2021_03_16_083548) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "delivery_routes", "users"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "customers"
+  add_foreign_key "orders", "delivery_routes"
   add_foreign_key "products", "categories"
 end

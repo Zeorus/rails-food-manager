@@ -13,13 +13,13 @@
         <% if current_user.role != "rider" %>
           <li class="nav-item">
             <!-- button modal redirect on shared/modal -->
-            <button type="button" class="btn-large nav-link" data-toggle="modal" data-target="#customer" data-customer=" <%= @customer = Customer.new %> ">
+            <div class="btn-navbar nav-link" data-toggle="modal" data-target="#customer" data-customer=" <%= @customer = Customer.new %> ">
               New Customer
-            </button>
+            </div>
           </li>
 
           <li class="nav-item">
-            <%= link_to "New Order", new_order_path, class: "btn-large nav-link" %>
+            <%= link_to "New Order", new_order_path, class: "btn-navbar nav-link" %>
           </li>
         <% end %>
         <li class="nav-item dropdown">
