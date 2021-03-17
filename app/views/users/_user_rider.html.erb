@@ -1,17 +1,15 @@
 <div class="category">
   <h2 class="text-center">Riders</h2>
   <% @riders.each do |rider| %>
-      <div class="show-user" data-toggle="modal" data-target="#userShowModal<%= rider.id %>" data-category=" <%= rider %> ">
-        <% if rider.avatar.attached? %>
-          <%= cl_image_tag rider.avatar.key, class: "avatar-staff", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% else %>
-          <!-- <img src="../../assets/images/rider.jpeg" class="avatar-staff" alt="manager"> -->
-          <%= image_tag "rider1.jpeg",class: "avatar-staff" %>
-        <% end %>
-        <div class="name">
-          <%= rider.first_name %>
-          <%= rider.last_name %>
-        </div>
+    <div class="show-user" data-toggle="modal" data-target="#userShowModal<%= rider.id %>" data-category=" <%= rider %> ">
+      <% if rider.avatar.attached? %>
+        <%= cl_image_tag rider.avatar.key, class: "avatar-staff", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else %>
+        <%= image_tag "rider1.jpeg",class: "avatar-staff" %>
+      <% end %>
+      <div class="name">
+        <%= rider.first_name %>
+        <%= rider.last_name %>
       </div>
     </div>
     <div class="modal fade" id="userShowModal<%= rider.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -31,10 +29,11 @@
             <% else %>
               <%= image_tag "rider1.jpeg",class: "avatar-staff-show" %>
             <% end %>
+            <h5 class="text-center" >contact :</h5 >
             <div class="staff-info">
-              <h5 class="text-center" >contact :</h5 >
               <span class="info-member"><%= rider.email%> / <%= rider.phone_number%></span>
             </div>
+            <%= render 'formEdit', user: rider  %>
           </div>
         </div>
       </div>

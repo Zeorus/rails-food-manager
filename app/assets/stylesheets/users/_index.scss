@@ -26,12 +26,14 @@
   height: 110px;
   border-radius: 50%;
   margin: 15px auto;
+  object-fit: cover;
 }
 
 .avatar-staff-show {
   width: 250px;
   height: 200px;
   margin: 15px 105px;
+  object-fit: cover;
 }
 
 .name {
@@ -41,9 +43,26 @@
 
 .info-member {
   font-size: 16px;
-  margin-left: 102.9px;
 }
 
 .role-member {
   color: $my_primary;
 }
+
+.staff-info {
+  display: flex;
+  justify-content: center;
+}
+
+.role-changes {
+  border: solid 2px $my_secondary;
+  border-radius: 10px;
+  margin: 24px;
+  padding: 24px;
+}
+
+.form-user-button {
+  display: flex;
+  justify-content: center;
+}
+

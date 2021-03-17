@@ -23,14 +23,14 @@
           </div>
           <div class="modal-body">
             <h2 class="text-center"><%= admin.first_name %> <%= admin.last_name %></h2>
-            <h4 class="text-center role-member"><%= admin.role%></h4>
+            <h4 class="text-center role-member">admin</h4>
             <% if admin.avatar.attached? %>
               <%= cl_image_tag admin.avatar.key, class: "avatar-staff-show"%>
             <% else %>
               <%= image_tag "admin.jpeg",class: "avatar-staff-show" %>
             <% end %>
+            <h5 class="text-center" >contact :</h5 >
             <div class="staff-info">
-              <h5 class="text-center" >contact :</h5 >
               <span class="info-member"><%= admin.email%> / <%= admin.phone_number%></span>
             </div>
           </div>

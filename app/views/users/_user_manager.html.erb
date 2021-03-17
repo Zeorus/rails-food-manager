@@ -29,10 +29,11 @@
             <% else %>
               <%= image_tag "manager.jpeg",class: "avatar-staff-show" %>
             <% end %>
+            <h5 class="text-center" >contact :</h5 >
             <div class="staff-info">
-              <h5 class="text-center" >contact :</h5 >
               <span class="info-member"><%= manager.email%> / <%= manager.phone_number%></span>
             </div>
+            <%= render 'formEdit', user: manager  %>
           </div>
         </div>
       </div>
