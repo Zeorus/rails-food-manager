@@ -1,7 +1,7 @@
 .btn-large {
   color: white !important;
   font-weight: bold !important;
-  border-radius: 50px !important;
+  // border-radius: 10px !important;
   background-color: $my_primary !important;
   border: none !important;
   padding: 8px 16px !important;
@@ -9,8 +9,36 @@
   &:focus {
     outline: 0;
   }
+
+  &:hover {
+    color: $my_primary !important;
+    background-color: white !important;
+    border: 1px solid $my_primary !important;
+    padding: 7px 15px !important;
+    cursor: pointer !important;
+  }
 }
 
 #btn-customer {
   width: 100%;
+}
+
+.btn-navbar {
+  border-style: hidden;
+  margin: 0 16px;
+  color: white !important;
+  font-weight: bold !important;
+  background-color: transparent;
+  padding: 8px 16px !important;
+  // border-radius: 10px;
+  border: 1px solid $my_light;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $my_light;
+  }
+
+  &:focus {
+    outline: 0;
+  }
 }

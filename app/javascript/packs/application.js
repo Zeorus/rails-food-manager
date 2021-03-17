@@ -26,6 +26,7 @@ import { displayProducts } from '../plugins/select_products';
 import { changeStatus } from '../plugins/change_status';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSortable } from '../plugins/init_sortable';
+import { attributeRider } from '../plugins/rider_attribution';
 
 document.addEventListener('turbolinks:load', () => {
   
@@ -46,6 +47,7 @@ document.addEventListener('turbolinks:load', () => {
 
   if (document.getElementById("address-list-container")) {
     initSortable();
+    attributeRider();
   }
 
 });

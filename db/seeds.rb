@@ -72,7 +72,7 @@ frieds_chicken = [
     price_in_menu: 11.50
   },
   {
-    name: 'Wings cream cheese & cheddar',
+    name: 'Wings cream & cheddar',
     price: 8.00,
     description: "5 Wings frit à la façon coréenne avec notre fameuse sauce \"Cream & Cheese\" et de ciboulettes.",
     price_in_menu: 11.50
@@ -84,7 +84,7 @@ frieds_chicken = [
     price_in_menu: 11.50
   },
   {
-    name: 'Tenders cream cheese & cheddar',
+    name: 'Tenders cheese & cheddar',
     price: 8.00,
     description: "5 Tenders frit à la façon coréenne avec notre fameuse sauce \"Cream & Cheese\" et de ciboulettes.",
     price_in_menu: 11.50
@@ -111,7 +111,7 @@ starters = [
     price_in_menu: 0.00
   },
   {
-    name: 'Frite Maison',
+    name: 'Frites Maison',
     price: 3.00,
     description: "Frites fraichement découpé la veille.",
     price_in_menu: 0.00
