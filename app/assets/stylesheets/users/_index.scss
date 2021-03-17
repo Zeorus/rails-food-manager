@@ -1,0 +1,49 @@
+.roles {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 120px;
+}
+
+.show-user {
+  width: 200px;
+  height: 180px;
+  margin: 24px auto;
+  background-color: white;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid $my_light;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+}
+
+.avatar-staff {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin: 15px auto;
+}
+
+.avatar-staff-show {
+  width: 250px;
+  height: 200px;
+  margin: 15px 105px;
+}
+
+.name {
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+.info-member {
+  font-size: 16px;
+  margin-left: 102.9px;
+}
+
+.role-member {
+  color: $my_primary;
+}

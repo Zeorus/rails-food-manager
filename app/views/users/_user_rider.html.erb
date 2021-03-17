@@ -1,14 +1,43 @@
-<h2>Riders</h2>
-<% @riders.each do |rider| %>
-  <a href="#" class="dropdown-toggle dropdown icon-edit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-edit icon"></i></a>
-  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-    <a href="#userEditModal<%= rider.id %>" data-toggle="modal" data-target="#userEditModal<%= rider.id %>" class="dropdown-item dropdown-item-top" data-edit=" <%= @user = rider %>">Edit</a>
-    <%= link_to "Destroy", users_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item dropdown-item-bottom" %>
-  </div>
-  <div class="user">
-    <%= rider.first_name %>
-    <%= rider.last_name %>
-    <%= rider.email %>
-    <%= rider.phone_number %>
-  </div>
-<% end %>
+<div class="category">
+  <h2 class="text-center">Riders</h2>
+  <% @riders.each do |rider| %>
+      <div class="show-user" data-toggle="modal" data-target="#userShowModal<%= rider.id %>" data-category=" <%= rider %> ">
+        <% if rider.avatar.attached? %>
+          <%= cl_image_tag rider.avatar.key, class: "avatar-staff", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <!-- <img src="../../assets/images/rider.jpeg" class="avatar-staff" alt="manager"> -->
+          <%= image_tag "rider1.jpeg",class: "avatar-staff" %>
+        <% end %>
+        <div class="name">
+          <%= rider.first_name %>
+          <%= rider.last_name %>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="userShowModal<%= rider.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>Staff member</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h2 class="text-center"><%= rider.first_name %> <%= rider.last_name %></h2>
+            <h4 class="text-center role-member"><%= rider.role%></h4>
+            <% if rider.avatar.attached? %>
+              <%= cl_image_tag rider.avatar.key, class: "avatar-staff-show"%>
+            <% else %>
+              <%= image_tag "rider1.jpeg",class: "avatar-staff-show" %>
+            <% end %>
+            <div class="staff-info">
+              <h5 class="text-center" >contact :</h5 >
+              <span class="info-member"><%= rider.email%> / <%= rider.phone_number%></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
