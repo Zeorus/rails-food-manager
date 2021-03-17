@@ -11,13 +11,13 @@
   <div class="row" id="cards_dashboard">
     <div class="card-info">
       <p>Target</p>
-      <div class="price_card"><h2>200€</h2></div>
+      <div class="price_card"><h2><%= @target %></h2></div>
       <%= link_to "Details", "#", class: "btn-card-info" %>
     </div>
     <div class="card-info">
       <p>Orders</p>
       <div class="price_card">
-        <h2> <%= Order.all.count %> </h2>
+        <h2> <%= @today_order %> </h2>
       </div>
       <%= link_to "Details", orders_path, class: "btn-card-info" %>
     </div>
@@ -30,77 +30,39 @@
     </div>
   </div>
   <div class="stat">
-    <div id="graphic">
-      <div id="info-today">
-        <h6>Today</h6>
-        <div class="d-flex justify-content-center">
-          <div id="dot-green"></div>
-          <p>12,734€</p>
-        </div>
-        <div class="d-flex justify-content-center">
-          <div id="dot-blue"> </div>
-          <p>5,374€</p>
-        </div>
-      </div>
 
-      <div id="legend">
-        <p>2021</p>
-        <div id="dot-green"> </div>
 
-        <p>2022</p>
-        <div id="dot-blue"> </div>
-      </div>
 
-      <div id="green-candle1"></div>
-      <div id="blue-candle1"></div>
+    <div class="container">
+      <canvas id="myChart" class="stat" data-orders="<%= @orders %>"></canvas>
+      <%= content_tag :div, class: "previous_week", data:
+      {
+        week: @previous_week,
+        monday_orders: @mon_p_sum,
+        tuesday_orders: @tue_p_sum,
+        wednesday_orders: @wed_p_sum,
+        thursday_orders: @thu_p_sum,
+        friday_orders: @fri_p_sum,
+        saturday_orders: @sat_p_sum,
+        sunday_orders: @sun_p_sum
+      } do %>
+      <% end %>
 
-      <div id="green-candle2"></div>
-      <div id="blue-candle2"></div>
-
-      <div id="green-candle3"></div>
-      <div id="blue-candle3"></div>
-
-      <div id="green-candle4"></div>
-      <div id="blue-candle4"></div>
-
-      <div id="green-candle5"></div>
-      <div id="blue-candle5"></div>
-
-      <div id="green-candle6"></div>
-      <div id="blue-candle6"></div>
-
-      <div id="green-candle7"></div>
-      <div id="blue-candle7"></div>
-
-      <div id="green-candle8"></div>
-      <div id="blue-candle8"></div>
-
-      <div id="green-candle9"></div>
-      <div id="blue-candle9"></div>
-
-      <div id="green-candle10"></div>
-      <div id="blue-candle10"></div>
-
-      <div id="green-candle11"></div>
-      <div id="blue-candle11"></div>
-
-      <div id="green-candle12"></div>
-      <div id="blue-candle12"></div>
+      <%= content_tag :div, class: "actual_week", data:
+      {
+        week: @actual_week,
+        monday_orders: @mon_a_sum,
+        tuesday_orders: @tue_a_sum,
+        wednesday_orders: @wed_a_sum,
+        thursday_orders: @thu_a_sum,
+        friday_orders: @fri_a_sum,
+        saturday_orders: @sat_a_sum,
+        sunday_orders: @sun_a_sum
+      } do %>
+      <% end %>
     </div>
-    <div class="row" id="month">
-      <span class="tabs-month">Jan</span>
-      <span class="tabs-month">Feb</span>
-      <span class="tabs-month">Mar</span>
-      <span class="tabs-month">Apr</span>
-      <span class="tabs-month">May</span>
-      <span class="tabs-month">Jun</span>
-      <span class="tabs-month">Jul</span>
-      <span class="tabs-month">Aug</span>
-      <span class="tabs-month">Sep</span>
-      <span class="tabs-month">Oct</span>
-      <span class="tabs-month">Nov</span>
-      <span class="tabs-month">Dec</span>
-    </div>
+
   </div>
 
 </div>
+<%= console %>

@@ -25,11 +25,14 @@ import "controllers";
 import { displayProducts } from '../plugins/select_products';
 import { changeStatus } from '../plugins/change_status';
 import { initMapbox } from '../plugins/init_mapbox';
+import { chart } from '../plugins/chart';
+
+
 
 document.addEventListener('turbolinks:load', () => {
-  
+
   $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
+    $('[data-toggle="tooltip"]').tooltip();
   });
 
   if (document.getElementById('new-order-container')) {
@@ -42,5 +45,6 @@ document.addEventListener('turbolinks:load', () => {
   }
 
   initMapbox();
+  chart();
 
 });
