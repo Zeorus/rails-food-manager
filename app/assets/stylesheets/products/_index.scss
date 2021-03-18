@@ -22,8 +22,13 @@
   border-radius: 10px;
 }
 
-.btn-content {
+#products-header {
   display: flex;
-  justify-content: space-around !important;
-  margin-bottom: 24px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+#btn-new-product {
+  margin-right: 24px;
 }

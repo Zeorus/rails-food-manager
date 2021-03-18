@@ -30,6 +30,10 @@
     summary {
       text-align: start !important;
       font-size: 18px;
+      
+      &:focus {
+        outline: 0;
+      }
     }
   }
 }
@@ -72,8 +76,8 @@
   align-items: center;
   font-size: 16px;
   border: 1px solid $my_light;
-  height: 42px;
-  border-radius: 50px;
+  height: 54px;
+  // border-radius: 50px;
   margin-bottom: 16px;
 
   &:hover {
@@ -102,6 +106,8 @@
   
   .tabs-item-status {
     flex: 0 0 15%;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -110,33 +116,37 @@
 }
 
 .order-status-pending {
-  background-color: $red;
+  background-color: $pending;
   color: white;
   font-weight: bold;
+  width: 116px;
   border-radius: 50px;
   padding: 8px;
 }
 
 .order-status-delivered {
-  background-color: $green;
+  background-color: $delivered;
   color: white;
   font-weight: bold;
+  width: 116px;
   border-radius: 50px;
   padding: 8px;
 }
 
 .order-status-delivering {
-  background-color: $orange;
+  background-color: $delivering;
   color: white;
   font-weight: bold;
+  width: 116px;
   border-radius: 50px;
   padding: 8px;
 }
 
 .order-status-ready {
-  background-color: #797174;
+  background-color: $ready;
   color: white;
   font-weight: bold;
+  width: 116px;
   border-radius: 50px;
   padding: 8px;
 }
