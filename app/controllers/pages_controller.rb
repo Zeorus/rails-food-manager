@@ -21,6 +21,13 @@ class PagesController < ApplicationController
     @saturday_p = Date.commercial(year, @previous_week, 6)
     @sunday_p = Date.commercial(year, @previous_week, 7)
 
+    @count = 0
+    Order.all.each do |order|
+      if order.created_at.to_date == Date.current
+        @count += order.total_price
+      end
+    end
+
     @target = Order.where(created_at: ( DateTime.now.at_beginning_of_day - 7..DateTime.now.at_end_of_day - 7)).sum(:total_price) * 1.1
     @today_order = Order.where(created_at: ( DateTime.now.at_beginning_of_day..DateTime.now.at_end_of_day)).count
 

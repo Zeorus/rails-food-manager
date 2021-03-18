@@ -11,11 +11,11 @@
   <div class="row" id="cards_dashboard">
     <div class="card-info">
       <p>Target</p>
-      <div class="price_card"><h2><%= @target %></h2></div>
+      <div class="price_card"><h2><%= @count.round %>€ / <%= @target.round %>€</h2></div>
       <%= link_to "Details", "#", class: "btn-card-info" %>
     </div>
     <div class="card-info">
-      <p>Orders</p>
+      <p>Total Orders</p>
       <div class="price_card">
         <h2> <%= @today_order %> </h2>
       </div>
