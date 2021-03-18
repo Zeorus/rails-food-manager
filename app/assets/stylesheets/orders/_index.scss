@@ -9,17 +9,33 @@
   padding: 16px;
 }
 
-#orders-list {
+#orders-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orders-list {
   margin-top: 16px;
   width: 100%;
   text-align: center;
+  
+  details {
+    color: $my_dark_one;
+    margin: 16px 0;
+
+    summary {
+      font-size: 18px;
+    }
+  }
 }
 
-#orders-header {
+.orders-header {
   display: flex;
   color: $my_dark_one;
   font-size: 18px;
   font-weight: bold;
+  margin-top: 16px;
   padding-bottom: 16px;
 }
 

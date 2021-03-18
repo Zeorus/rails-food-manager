@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'geolocation', to: 'orders#geoloc'
 
+  get 'riders', to: 'users#riders'
+
   resources :customers
 
   resources :orders, except: [:edit]

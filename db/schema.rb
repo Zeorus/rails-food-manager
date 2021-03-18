@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_17_104125) do
+ActiveRecord::Schema.define(version: 2021_03_17_195409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2021_03_17_104125) do
     t.string "recovery_mode", default: "Livraison"
     t.float "total_price", default: 0.0
     t.integer "step"
-    t.bigint "delivery_route_id"
+    t.integer "delivery_route_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["delivery_route_id"], name: "index_orders_on_delivery_route_id"
   end

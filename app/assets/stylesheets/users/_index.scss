@@ -1,7 +1,16 @@
+@import 'riders';
+
+#staff-container {
+  background-color: white;
+  padding: 16px;
+  border: 1px solid $my_light;
+  border-radius: 10px;
+}
+
 .roles {
   display: flex;
-  justify-content: space-between;
-  margin: 40px 120px;
+  justify-content: space-around;
+  margin: 24px auto;
 }
 
 .show-user {

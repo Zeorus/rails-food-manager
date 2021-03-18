@@ -1,37 +1,39 @@
 <% products.each do |category_name, products| %>
-  <div class="category_name">
-    <a href="#" class="dropdown-toggle dropdown name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= category_name %></a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-      <% category = Category.find_by(name: category_name) %>
-      <a href="#categoryEditModal<%= category.id %>" data-toggle="modal" data-target="#categoryEditModal<%= category.id %>" class="dropdown-item dropdown-item-top edit_dropdown" data-edit=" <%= @category = category %>">Edit</a>
+  <div id="category_container">
+    <div class="category_name">
+      <a href="#" class="dropdown-toggle dropdown name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= category_name %></a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+        <% category = Category.find_by(name: category_name) %>
+        <a href="#categoryEditModal<%= category.id %>" data-toggle="modal" data-target="#categoryEditModal<%= category.id %>" class="dropdown-item dropdown-item-top edit_dropdown" data-edit=" <%= @category = category %>">Edit</a>
+      </div>
     </div>
-  </div>
-  <%= render 'categories/modalEdit' %>
-  <div class="cards_product">
-    <% products.each do |product|%>
-      <div class="card_product">
-        <a href="#" class="dropdown-toggle dropdown icon-edit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-edit icon"></i></a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a href="#productEditModal<%= product.id %>" data-toggle="modal" data-target="#productEditModal<%= product.id %>" class="dropdown-item dropdown-item-top" data-edit=" <%= @product = product %>">Edit</a>
-          <% if current_user.admin? %>
-            <%= link_to "Destroy", product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item dropdown-item-bottom" %>
-          <% end %>
-        </div>
-          <div class="show-product" data-toggle="modal" data-target="#productShowModal<%= product.id %>" data-category=" <%= product %> ">
-            <% if product.photo.attached?%>
-              <%= cl_image_tag product.photo.key, class: "image_product text-center" %>
-            <% else %>
-              <%= image_tag "default_image.jpg",class: "image_product text-center" %>
+    <%= render 'categories/modalEdit' %>
+    <div class="cards_product">
+      <% products.each do |product|%>
+        <div class="card_product">
+          <a href="#" class="dropdown-toggle dropdown icon-edit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-edit icon"></i></a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a href="#productEditModal<%= product.id %>" data-toggle="modal" data-target="#productEditModal<%= product.id %>" class="dropdown-item dropdown-item-top" data-edit=" <%= @product = product %>">Edit</a>
+            <% if current_user.admin? %>
+              <%= link_to "Destroy", product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item dropdown-item-bottom" %>
             <% end %>
           </div>
-        <div class="product_info">
-          <span class="name-container"><%= product.name %></span>
-          <span><strong><%= product.price %> €</strong></span>
+            <div class="show-product" data-toggle="modal" data-target="#productShowModal<%= product.id %>" data-category=" <%= product %> ">
+              <% if product.photo.attached?%>
+                <%= cl_image_tag product.photo.key, class: "image_product text-center" %>
+              <% else %>
+                <%= image_tag "default_image.jpg",class: "image_product text-center" %>
+              <% end %>
+            </div>
+          <div class="product_info">
+            <span class="name-container"><%= product.name %></span>
+            <span><strong><%= product.price %> €</strong></span>
+          </div>
         </div>
-      </div>
-      <%= render 'modalEdit' %>
-      <%= render 'show_modal', product: product %>
-    <% end %>
+        <%= render 'modalEdit' %>
+        <%= render 'show_modal', product: product %>
+      <% end %>
+    </div>
   </div>
 <% end %>
 

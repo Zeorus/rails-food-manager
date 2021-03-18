@@ -1,15 +1,17 @@
-<div class="btn-content">
-  <% if current_user.admin? %>
-    <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#productModal" data-product=" <%= @product = Product.new %> ">
-      New Product
-    </button>
+<div id="products-container">
+  <div class="btn-content">
+    <% if current_user.admin? %>
+      <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#productModal" data-product=" <%= @product = Product.new %> ">
+        New Product
+      </button>
 
-    <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#categoryModal" data-category=" <%= @category = Category.new %> ">
-      New Category
-    </button>
-    <%= render 'modal' %>
-    <%= render 'categories/modal' %>
-  <% end %>
+      <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#categoryModal" data-category=" <%= @category = Category.new %> ">
+        New Category
+      </button>
+      <%= render 'modal' %>
+      <%= render 'categories/modal' %>
+    <% end %>
+  </div>
+  <%= render "searchbar" %>
+  <%= render "product_card", products: @productHash %>
 </div>
-<%= render "searchbar" %>
-<%= render "product_card", products: @productHash %>
