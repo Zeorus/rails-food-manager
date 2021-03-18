@@ -1,6 +1,7 @@
 #delivery-route-container {
   display: flex;
   background-color: white;
+  align-items: center;
   border: 1px solid $my_light;
   border-radius: 10px;
   padding: 16px;
@@ -18,6 +19,7 @@
 
 #delivery-map {
   flex: 0 0 50%;
+  border: 1px solid $my_light;
 }
 
 .route-order-infos {
@@ -26,6 +28,10 @@
   border-radius: 10px;
   padding: 16px;
   margin-bottom: 16px;
+  
+  &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
 }
 
 .route-order-content {
@@ -34,14 +40,4 @@
 
 .route-order-products {
   flex: 0 0 40%
-}
-
-.truck {
-  margin: -10px -10px;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background: #3887be;
-  pointer-events: none;
 }

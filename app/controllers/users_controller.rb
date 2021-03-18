@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 before_action :find_user, only: [:edit, :update]
+skip_after_action :verify_authorized, only: [:riders]
 
   def index
     @users = policy_scope(User)
@@ -18,6 +19,16 @@ before_action :find_user, only: [:edit, :update]
     end
   end
 
+  def riders
+    @users = User.all
+    @riders = []
+    @users.each do |user|
+      if user.role == "rider"
+        @riders << user
+      end
+    end
+  end
+
   def edit
     authorize @user
   end
@@ -26,7 +37,7 @@ before_action :find_user, only: [:edit, :update]
     @user = User.find(params[:id])
     authorize @user
     if @user.update(user_params)
-      redirect_to users_path, notice: "Product was successfully updated"
+      redirect_to users_path, notice: "User was successfully updated"
     else
       render :edit
     end

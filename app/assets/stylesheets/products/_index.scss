@@ -1,5 +1,27 @@
 @import "show";
 
+#category_container {
+  border: 1px solid $my_light;
+  border-radius: 10px;
+  margin: 16px 0;
+  padding: 16px;
+}
+
+.category_name {
+
+  .name {
+    font-size: 28px;
+    color: $my_dark_one;
+  }
+}
+
+#products-container {
+  background-color: white;
+  padding: 16px;
+  border: 1px solid $my_light;
+  border-radius: 10px;
+}
+
 .btn-content {
   display: flex;
   justify-content: space-around !important;

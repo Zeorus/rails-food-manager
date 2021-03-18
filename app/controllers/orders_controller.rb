@@ -1,6 +1,15 @@
 class OrdersController < ApplicationController
   def index
-    @orders = policy_scope(Order)
+    orders = policy_scope(Order)
+    @today_orders = []
+    @old_orders = []
+    orders.each do |order|
+      if order.created_at.to_date == Date.current
+        @today_orders << order
+      else
+        @old_orders << order
+      end
+    end
   end
 
   def show
