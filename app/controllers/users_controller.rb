@@ -19,16 +19,6 @@ skip_after_action :verify_authorized, only: [:riders]
     end
   end
 
-  def riders
-    @users = User.all
-    @riders = []
-    @users.each do |user|
-      if user.role == "rider"
-        @riders << user
-      end
-    end
-  end
-
   def edit
     authorize @user
   end

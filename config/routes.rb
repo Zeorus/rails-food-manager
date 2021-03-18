@@ -7,8 +7,6 @@ Rails.application.routes.draw do
 
   get 'geolocation', to: 'orders#geoloc'
 
-  get 'riders', to: 'users#riders'
-
   resources :customers
 
   resources :orders, except: [:edit]
@@ -16,10 +14,9 @@ Rails.application.routes.draw do
   resources :products
 
   resources :categories
-  
-  resources :users
-  
-  resources :delivery_routes, only: [:show, :create]
 
-  
+  resources :users
+
+  resources :delivery_routes, only: [:index, :show, :create, :update]
+
 end

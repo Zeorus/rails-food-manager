@@ -41,7 +41,7 @@ document.addEventListener('turbolinks:load', () => {
     displayProducts();
   }
 
-  if (document.getElementById('order-show-container')) {
+  if (document.getElementById('btn-change-status')) {
     changeStatus()
   }
 

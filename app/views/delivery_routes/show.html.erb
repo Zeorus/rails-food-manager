@@ -1,6 +1,19 @@
 <div id="delivery-route-container">
   <div id="route-infos-container">
-    <h2>Delivery Route #<%= @delivery_route.id %></h2>
+    <div id="route-info-header">
+      <h2>Delivery Route #<%= @delivery_route.id %></h2>
+      <a href="#" class="dropdown-toggle dropdown" id="deliveryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="delivery_route-status-<%= @delivery_route.status %>"><%= @delivery_route.status.capitalize %></span></a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="deliveryDropdown">
+        <div class="dropdown-item dropdown-item-top">Delivering</div>
+        <div class="dropdown-item dropdown-item-bottom">Delivered</div>
+      </div>
+    </div>
+
+    <%= simple_form_for(@delivery_route) do |f| %>
+      <%= f.input :status, label: false %>
+      <%= f.submit id: "btn-change-status", class: "hidden" %>
+    <% end %>
+
     <p><strong>Create:</strong> <%= @delivery_route.created_at.strftime("%A, %d-%m-%Y at %H:%M") %></p>
     <p><strong>Number of orders:</strong> <%= @delivery_route.orders.count %></p>
     <p><strong>Delivery Man:</strong> <%= @delivery_route.user.first_name %> <%= @delivery_route.user.last_name %></p>
