@@ -65,7 +65,7 @@ class OrdersController < ApplicationController
   end
 
   def geoloc
-    @orders = Order.where(delivery_status: "ready")
+    @orders = Order.where(delivery_status: "ready", recovery_mode: "Livraison")
     authorize @orders
     @markers = markers()
     @riders = User.where(role: "rider")
@@ -79,7 +79,7 @@ class OrdersController < ApplicationController
   end
 
   def markers
-    @customers = Customer.joins(:orders).where(orders: { delivery_status: "ready" })
+    @customers = Customer.joins(:orders).where(orders: { delivery_status: "ready", recovery_mode: "Livraison" })
     @markers = @customers.geocoded.map do |customer|
       {
         lat: customer.latitude,
