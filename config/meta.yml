@@ -1,0 +1,5 @@
+meta_product_name: "Goku Asian Food"
+meta_title: "Goku Asian Food - Découvrer les saveurs de l'Asie"
+meta_description: "Goku Asian Food vous propose de découvrir de nouvelles saveurs de l'Asie préparées artisanalement dans les règles de l'art"
+meta_image: "og_image.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
