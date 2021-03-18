@@ -17,6 +17,26 @@
   font-size: 18px;
   font-weight: bold;
   padding-bottom: 16px;
+
+  .tabs-item-name {
+    flex: 0 0 20%;
+  }
+  
+  .tabs-item-phone {
+    flex: 0 0 20%;
+  }
+  
+  .tabs-item-address {
+    flex: 0 0 30%;
+  }
+  
+  .tabs-item-city {
+    flex: 0 0 15%;
+  }
+  
+  .tabs-item-actions {
+    flex: 0 0 15%;
+  }
 }
 
 .customer-row {
@@ -31,24 +51,25 @@
   .fa-user-edit {
     font-size: 16px;
   }
+
+  .tabs-item-name {
+    flex: 0 0 20%;
+  }
+  
+  .tabs-item-phone {
+    flex: 0 0 20%;
+  }
+  
+  .tabs-item-address {
+    flex: 0 0 30%;
+  }
+  
+  .tabs-item-city {
+    flex: 0 0 15%;
+  }
+  
+  .tabs-item-actions {
+    flex: 0 0 15%;
+  }
 }
 
-.tabs-item-name {
-  flex: 0 0 20%;
-}
-
-.tabs-item-phone {
-  flex: 0 0 20%;
-}
-
-.tabs-item-address {
-  flex: 0 0 30%;
-}
-
-.tabs-item-city {
-  flex: 0 0 15%;
-}
-
-.tabs-item-actions {
-  flex: 0 0 15%;
-}

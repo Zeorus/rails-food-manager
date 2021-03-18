@@ -1,0 +1,55 @@
+<div id="deliveries-container">
+  <div id="deliveries-list">
+    <details open>
+      <summary>Deliveries of the day</summary>
+      <div class="deliveries-header">
+        <span class="tabs-item-time">Time</span>
+        <span class="tabs-item-rider">Rider</span>
+        <span class="tabs-item-nboforders">Orders</span>
+        <span class="tabs-item-status">Status</span>
+      </div>
+      <div class="deliveries-content">
+        <% if @today_deliveries != [] %>
+          <% @today_deliveries.sort_by(&:created_at).reverse.each do |delivery_route| %>
+            <%= link_to delivery_route_path(delivery_route) do %>
+              <div class="delivery_route-row">
+                <span class="tabs-item-time"><%= delivery_route.created_at.strftime("%d-%m-%Y %H:%M") %></span>
+                <span class="tabs-item-rider"><%= delivery_route.user.first_name %> <%= delivery_route.user.last_name %></span>
+                <span class="tabs-item-nboforders"><%= delivery_route.orders.count %></span>
+                <span class="tabs-item-status"><span class="delivery_route-status-<%= delivery_route.status %>"><%= delivery_route.status.capitalize %></span></span>
+              </div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <p>No delivery for today</p>
+        <% end %>
+      </div>
+    </details>
+
+    <details>
+    <summary>Old deliveries</summary>
+      <div class="deliveries-header">
+        <span class="tabs-item-time">Time</span>
+        <span class="tabs-item-rider">Rider</span>
+        <span class="tabs-item-nboforders">Orders</span>
+        <span class="tabs-item-status">Status</span>
+      </div>
+      <div class="deliveries-content">
+        <% if @old_deliveries != [] %>
+          <% @old_deliveries.sort_by(&:created_at).reverse.each do |delivery_route| %>
+            <%= link_to delivery_route_path(delivery_route) do %>
+              <div class="delivery_route-row">
+                <span class="tabs-item-time"><%= delivery_route.created_at.strftime("%d-%m-%Y %H:%M") %></span>
+                <span class="tabs-item-rider"><%= delivery_route.user.first_name %> <%= delivery_route.user.last_name %></span>
+                <span class="tabs-item-nboforders"><%= delivery_route.orders.count %></span>
+                <span class="tabs-item-status"><span class="delivery_route-status-<%= delivery_route.status %>"><%= delivery_route.status.capitalize %></span></span>
+              </div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <p>No old delivery</p>
+        <% end %>
+      </div>
+    </details>
+  </div>
+</div>

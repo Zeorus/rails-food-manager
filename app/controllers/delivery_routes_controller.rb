@@ -1,6 +1,20 @@
 class DeliveryRoutesController < ApplicationController
   skip_before_action :verify_authenticity_token
   skip_after_action :verify_authorized
+  skip_after_action :verify_policy_scoped
+
+  def index
+    delivery_routes = DeliveryRoute.all
+    @today_deliveries = []
+    @old_deliveries = []
+    delivery_routes.each do |delivery|
+      if delivery.created_at.to_date == Date.current
+        @today_deliveries << delivery
+      else
+        @old_deliveries << delivery
+      end
+    end
+  end
 
   def show
     @delivery_route = DeliveryRoute.find(params[:id])
@@ -21,7 +35,24 @@ class DeliveryRoutesController < ApplicationController
     redirect_to geolocation_path, notice: "Deliveries correctly attributed to #{@rider.first_name} #{@rider.last_name}"
   end
 
+  def update
+    @delivery_route = DeliveryRoute.find(params[:id])
+    @delivery_route.update!(delivery_route_params)
+    @delivery_route.orders.each do |order|
+      if @delivery_route.status == "delivered"
+        order.update!(delivery_status: "delivered")
+      else
+        order.update!(delivery_status: "delivering")
+      end
+    end
+    redirect_to delivery_route_path(@delivery_route), notice: "Delivery Status was successfully updated"
+  end
+
   private
+
+  def delivery_route_params
+    params.require(:delivery_route).permit(:status)
+  end
 
   def markers(delivery_route)
     @markers = []

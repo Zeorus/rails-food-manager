@@ -14,9 +14,9 @@
       <% end %>
       <div class="dropdown-item dropdown-item-bottom">Delivered</div>
     </div>
-  <%# if @order.delivery_route != nil %><p class="mt-2">Delivery Man: <%#= @order.delivery_route.user.first_name %> <%#= @order.delivery_route.user.last_name %></p>
-    <%#  %>
-  <%# end %>
+  <% if @order.delivery_route != nil %>
+    <p class="mt-2">Delivery Man: <%= @order.delivery_route.user.first_name %> <%= @order.delivery_route.user.last_name %></p>
+  <% end %>
 
   <%= simple_form_for(@order) do |f| %>
     <%= f.input :delivery_status, label: false %>

@@ -1,1 +1,102 @@
 @import "show";
+
+#deliveries-container {
+  background-color: white;
+  padding: 16px;
+  border: 1px solid $my_light;
+  border-radius: 10px;
+}
+
+#deliveries-list {
+  margin-top: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  details {
+    border: 1px solid $my_light;
+    border-radius: 10px;
+    width: 60%;
+    color: $my_dark_one;
+    margin: 16px 0;
+    padding: 16px;
+
+    summary {
+      text-align: start !important;
+      font-size: 18px;
+    }
+  }
+}
+
+.deliveries-header {
+  display: flex;
+  color: $my_dark_one;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 16px;
+  padding-bottom: 16px;
+
+  .tabs-item-time {
+    flex: 0 0 25%;
+  }
+  
+  .tabs-item-rider {
+    flex: 0 0 25%;
+  }
+  
+  .tabs-item-nboforders {
+    flex: 0 0 25%;
+  }
+  
+  .tabs-item-status {
+    flex: 0 0 25%;
+  }
+}
+
+.delivery_route-row {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  border: 1px solid $my_light;
+  height: 42px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+
+  &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  .tabs-item-time {
+    flex: 0 0 25%;
+  }
+  
+  .tabs-item-rider {
+    flex: 0 0 25%;
+  }
+  
+  .tabs-item-nboforders {
+    flex: 0 0 25%;
+  }
+  
+  .tabs-item-status {
+    flex: 0 0 25%;
+  }
+
+}
+
+.delivery_route-status-delivered {
+  background-color: $green;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  padding: 8px;
+}
+
+.delivery_route-status-delivering {
+  background-color: $orange;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  padding: 8px;
+}

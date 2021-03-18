@@ -23,8 +23,12 @@
   details {
     color: $my_dark_one;
     margin: 16px 0;
+    border: 1px solid $my_light;
+    border-radius: 10px;
+    padding: 16px;
 
     summary {
+      text-align: start !important;
       font-size: 18px;
     }
   }
@@ -37,30 +41,30 @@
   font-weight: bold;
   margin-top: 16px;
   padding-bottom: 16px;
-}
 
-.tabs-item-time {
-  flex: 0 0 18%;
-}
+  .tabs-item-time {
+    flex: 0 0 18%;
+  }
 
-.tabs-item-customer {
-  flex: 0 0 18%;
-}
-
-.tabs-item-price {
-  flex: 0 0 12%;
-}
-
-.tabs-item-address {
-  flex: 0 0 24%;
-}
-
-.tabs-item-city {
-  flex: 0 0 12%;
-}
-
-.tabs-item-status {
-  flex: 0 0 15%;
+  .tabs-item-customer {
+    flex: 0 0 18%;
+  }
+  
+  .tabs-item-price {
+    flex: 0 0 12%;
+  }
+  
+  .tabs-item-address {
+    flex: 0 0 24%;
+  }
+  
+  .tabs-item-city {
+    flex: 0 0 12%;
+  }
+  
+  .tabs-item-status {
+    flex: 0 0 15%;
+  }
 }
 
 .order-row {
@@ -74,6 +78,30 @@
 
   &:hover {
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  .tabs-item-time {
+    flex: 0 0 18%;
+  }
+
+  .tabs-item-customer {
+    flex: 0 0 18%;
+  }
+  
+  .tabs-item-price {
+    flex: 0 0 12%;
+  }
+  
+  .tabs-item-address {
+    flex: 0 0 24%;
+  }
+  
+  .tabs-item-city {
+    flex: 0 0 12%;
+  }
+  
+  .tabs-item-status {
+    flex: 0 0 15%;
   }
 }
 
