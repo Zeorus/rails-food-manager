@@ -17,7 +17,7 @@ const initMapDelivery = () => {
     const map = new mapboxgl.Map({
       container: 'delivery-map', // container id
       style: 'mapbox://styles/mapbox/light-v10', // stylesheet location
-      center: startLocation, // starting position
+      // center: startLocation, // starting position
       zoom: 12 // starting zoom
     });
   

@@ -16,7 +16,7 @@
                 <span class="tabs-item-time"><%= delivery_route.created_at.strftime("%d-%m-%Y %H:%M") %></span>
                 <span class="tabs-item-rider"><%= delivery_route.user.first_name %> <%= delivery_route.user.last_name %></span>
                 <span class="tabs-item-nboforders"><%= delivery_route.orders.count %></span>
-                <span class="tabs-item-status"><span class="delivery_route-status-<%= delivery_route.status %>"><%= delivery_route.status.capitalize %></span></span>
+                <span class="tabs-item-status"><div class="delivery_route-status-<%= delivery_route.status %>"><%= delivery_route.status.capitalize %></div></span>
               </div>
             <% end %>
           <% end %>
@@ -42,7 +42,7 @@
                 <span class="tabs-item-time"><%= delivery_route.created_at.strftime("%d-%m-%Y %H:%M") %></span>
                 <span class="tabs-item-rider"><%= delivery_route.user.first_name %> <%= delivery_route.user.last_name %></span>
                 <span class="tabs-item-nboforders"><%= delivery_route.orders.count %></span>
-                <span class="tabs-item-status"><span class="delivery_route-status-<%= delivery_route.status %>"><%= delivery_route.status.capitalize %></span></span>
+                <span class="tabs-item-status"><div class="delivery_route-status-<%= delivery_route.status %>"><%= delivery_route.status.capitalize %></div></span>
               </div>
             <% end %>
           <% end %>

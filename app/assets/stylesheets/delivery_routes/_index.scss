@@ -25,6 +25,10 @@
     summary {
       text-align: start !important;
       font-size: 18px;
+      
+      &:focus {
+        outline: 0;
+      }
     }
   }
 }
@@ -59,8 +63,8 @@
   align-items: center;
   font-size: 16px;
   border: 1px solid $my_light;
-  height: 42px;
-  border-radius: 50px;
+  height: 54px;
+  // border-radius: 50px;
   margin-bottom: 16px;
 
   &:hover {
@@ -81,22 +85,26 @@
   
   .tabs-item-status {
     flex: 0 0 25%;
+    display: flex;
+    justify-content: center;
   }
 
 }
 
 .delivery_route-status-delivered {
-  background-color: $green;
+  background-color: $delivered;
   color: white;
   font-weight: bold;
   border-radius: 50px;
+  width: 116px;
   padding: 8px;
 }
 
 .delivery_route-status-delivering {
-  background-color: $orange;
+  background-color: $delivering;
   color: white;
   font-weight: bold;
   border-radius: 50px;
+  width: 116px;
   padding: 8px;
 }

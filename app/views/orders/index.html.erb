@@ -41,7 +41,7 @@
                 <span class="tabs-item-price"><%= order.total_price %> €</span>
                 <span class="tabs-item-address"><%= order.customer.address %></span>
                 <span class="tabs-item-city"><%= order.customer.city %></span>
-                <span class="tabs-item-status"><span class="order-status-<%= order.delivery_status %>"><%= order.delivery_status.capitalize %></span></span>
+                <span class="tabs-item-status"><div class="order-status-<%= order.delivery_status %>"><%= order.delivery_status.capitalize %></div></span>
               </div>
             <% end %>
           <% end %>
@@ -71,7 +71,7 @@
                 <span class="tabs-item-price"><%= order.total_price %> €</span>
                 <span class="tabs-item-address"><%= order.customer.address %></span>
                 <span class="tabs-item-city"><%= order.customer.city %></span>
-                <span class="tabs-item-status"><span class="order-status-<%= order.delivery_status %>"><%= order.delivery_status.capitalize %></span></span>
+                <span class="tabs-item-status"><div class="order-status-<%= order.delivery_status %>"><%= order.delivery_status.capitalize %></div></span>
               </div>
             <% end %>
           <% end %>

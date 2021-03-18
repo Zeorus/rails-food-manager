@@ -1,17 +1,32 @@
 <div id="products-container">
-  <div class="btn-content">
+  <div id="products-header">
+    <div id="products-searchbar">
+      <%= form_tag products_path, method: :get do %>
+        <div class="laptop-searchbar">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "input-form",
+            placeholder: "Find a product"
+          %>
+          <button type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      <% end %>
+    </div>
     <% if current_user.admin? %>
-      <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#productModal" data-product=" <%= @product = Product.new %> ">
-        New Product
-      </button>
+      <div class="d-flex">
+        <button type="button" id="btn-new-product" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#productModal" data-product=" <%= @product = Product.new %> ">
+          New Product
+        </button>
 
-      <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#categoryModal" data-category=" <%= @category = Category.new %> ">
-        New Category
-      </button>
+        <button type="button" class="btn-large nav-link btn-product" data-toggle="modal" data-target="#categoryModal" data-category=" <%= @category = Category.new %> ">
+          New Category
+        </button>
+      </div>
       <%= render 'modal' %>
       <%= render 'categories/modal' %>
     <% end %>
   </div>
-  <%= render "searchbar" %>
   <%= render "product_card", products: @productHash %>
 </div>
