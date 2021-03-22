@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   validates :phone_number, presence: true, uniqueness: true, format: { with: /\A(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}\z/, message: "Invalid phone number" }
   validates :address, presence: true
