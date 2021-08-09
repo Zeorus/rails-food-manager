@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: :destroy
+
   def index
     orders = policy_scope(Order)
     @today_orders = []
@@ -33,7 +35,7 @@ class OrdersController < ApplicationController
     authorize @order
     @order.customer = Customer.find_by(phone_number: params[:customer])
     order_products = params[:products]
-    if @order.save!
+    if @order.save
       unless order_products == nil
         order_products.each do |product, quantity|
           order_product = OrderProduct.new(product_id: product.to_i, quantity: quantity)

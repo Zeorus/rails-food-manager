@@ -1,11 +1,21 @@
 #delivery-route-container {
   display: flex;
   background-color: white;
-  align-items: center;
   border: 1px solid $my_light;
   border-radius: 10px;
   padding: 16px;
-  color: $my_dark_one
+  color: $my_dark_one;
+  height: calc(100vh - 115px);
+}
+
+#route-infos-container {
+  flex: 0 0 50%;
+  padding-right: 16px;
+  overflow-y: auto;
+
+  p {
+    margin-bottom: 8px;
+  }
 }
 
 #route-info-header {
@@ -18,18 +28,15 @@
   }
 }
 
-#route-infos-container {
+#delivery-map-container {
   flex: 0 0 50%;
-  padding-right: 16px;
-
-  p {
-    margin-bottom: 8px;
-  }
+  height: 100%;
+  padding-left: 16px;
 }
 
 #delivery-map {
-  flex: 0 0 50%;
   border: 1px solid $my_light;
+  border-radius: 10px;
 }
 
 .route-order-infos {
